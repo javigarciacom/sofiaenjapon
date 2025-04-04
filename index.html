@@ -8,8 +8,6 @@
         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap');
 
         :root {
-            /* --primary-color: #6a5acd; /* Slate Blue / Lavender - No longer used for titles */
-            /* --secondary-color: #8a7bcd; /* Lighter lavender - No longer used for titles */
             --title-color: #ff9a8b; /* Coral - Same as button start */
             --accent-color-start: #ff9a8b; /* Coral */
             --accent-color-end: #ff6a88; /* Pink */
@@ -42,6 +40,22 @@
             overflow: hidden;
         }
 
+        /* --- Title Image --- */
+        .title-image-container {
+            text-align: center; /* Center the image */
+            margin-bottom: 25px; /* Space below title image */
+            padding-bottom: 20px; /* Space before border */
+            border-bottom: 2px solid var(--border-accent); /* Keep the bottom border */
+        }
+        .title-image {
+            max-width: 100%; /* Responsive */
+            height: auto; /* Maintain aspect ratio */
+            max-height: 100px; /* Optional: constrain height slightly more */
+            display: inline-block; /* Needed for text-align center */
+        }
+        /* --- End Title Image --- */
+
+
         .section {
             display: none;
             opacity: 0;
@@ -54,21 +68,14 @@
             opacity: 1;
         }
 
-        h1, h2 {
+        /* h1 styles removed */
+
+        h2 {
             color: var(--title-color); /* Updated Color */
             text-align: center;
             margin-bottom: 20px;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            border-bottom: 2px solid var(--border-accent);
-            padding-bottom: 10px;
-        }
-
-        h2 {
             font-size: 1.8em;
-            margin-top: 30px;
+            margin-top: 20px; /* Adjusted top margin */
         }
 
         p {
@@ -76,10 +83,16 @@
             font-size: 1.1em;
             color: var(--text-light);
         }
+        ul { /* Styling for lists, e.g. Section 6 */
+            margin-bottom: 1em;
+            padding-left: 25px;
+            color: var(--text-light);
+        }
+        li {
+             margin-bottom: 0.5em;
+        }
 
         /* --- Image Handling Styles --- */
-
-        /* Horizontal Image Placeholder */
         .image-placeholder-horizontal {
             text-align: center;
             margin-bottom: 20px;
@@ -95,16 +108,8 @@
             display: inline-block;
         }
 
-        /* Vertical Image Layout Wrapper */
-        .content-wrapper {
-            /* Does not use flex by default */
-            margin-bottom: 20px;
-        }
-
-        /* Vertical Image Placeholder */
-        .image-placeholder-vertical {
-             display: none; /* Hidden by default */
-        }
+        .content-wrapper { margin-bottom: 20px; }
+        .image-placeholder-vertical { display: none; }
         .image-placeholder-vertical img {
             max-width: 100%;
             height: auto;
@@ -112,21 +117,19 @@
             display: block;
             margin-top: 0; /* Align top fix */
         }
-
-        /* Text Content Area */
-        .text-content p:first-child {
-            margin-top: 0; /* Align top fix */
+        .text-content p:first-child,
+        .text-content ul:first-child {
+             margin-top: 0; /* Align top fix */
         }
 
-        /* Activate Flex Layout for Vertical Images */
         .section.has-vertical-image .content-wrapper {
             display: flex;
-            flex-wrap: wrap; /* Allow wrapping on small screens */
+            flex-wrap: wrap;
             gap: 30px;
             align-items: flex-start; /* Explicitly align items to the top */
         }
         .section.has-vertical-image .image-placeholder-vertical {
-            display: block; /* Show vertical placeholder */
+            display: block;
             flex: 1 1 35%;
             min-width: 200px;
         }
@@ -135,12 +138,10 @@
             min-width: 250px;
         }
 
-        /* Left/Right alignment for Vertical images */
         .section.has-vertical-image.image-left .image-placeholder-vertical { order: 1; }
         .section.has-vertical-image.image-left .text-content { order: 2; }
         .section.has-vertical-image.image-right .image-placeholder-vertical { order: 2; }
         .section.has-vertical-image.image-right .text-content { order: 1; }
-
         /* --- End Image Styles --- */
 
         .choices {
@@ -153,7 +154,7 @@
             clear: both;
         }
 
-        .choices p { /* Text before choices */
+        .choices p {
             font-weight: 500;
             color: var(--title-color); /* Updated Color */
             margin-bottom: 15px;
@@ -177,13 +178,11 @@
             box-shadow: 0 4px 10px rgba(255, 106, 136, 0.3);
             text-align: left;
         }
-
         .choices button:hover {
             background-image: linear-gradient(90deg, var(--accent-color-end) 0%, var(--accent-color-start) 100%);
             box-shadow: 0 6px 15px rgba(255, 106, 136, 0.4);
             transform: translateY(-2px);
         }
-
         .choices button:active {
             transform: translateY(1px);
             box-shadow: 0 2px 5px rgba(255, 106, 136, 0.2);
@@ -199,15 +198,12 @@
 
          /* Small screen adjustments */
         @media (max-width: 768px) {
-             .story-container {
-                 padding: 20px 25px;
-             }
-             h1 { font-size: 2em; }
+             .story-container { padding: 20px 25px; }
+             .title-image { max-height: 80px; } /* Adjust title height */
              h2 { font-size: 1.5em; }
-             p { font-size: 1em; }
+             p, li { font-size: 1em; } /* Adjust list item font size too */
              .choices button { font-size: 1em; padding: 12px 15px; }
 
-             /* Stack columns on smaller screens */
              .section.has-vertical-image .content-wrapper {
                  flex-direction: column;
                  gap: 15px;
@@ -216,16 +212,12 @@
                  width: 100%;
                  max-width: 300px;
                  margin: 0 auto 15px auto;
-                 order: 1 !important; /* Image always first when stacked */
+                 order: 1 !important;
              }
              .section.has-vertical-image .text-content {
                  width: 100%;
-                 order: 2 !important; /* Text always second */
-                 flex-basis: auto; /* Reset flex basis */
-             }
-             .section.has-vertical-image.image-left,
-             .section.has-vertical-image.image-right {
-                 /* No need for order changes here */
+                 order: 2 !important;
+                 flex-basis: auto;
              }
          }
 
@@ -233,11 +225,17 @@
 </head>
 <body>
     <div class="story-container">
-        <h1>La Gran Aventura de Sofía en Japón</h1>
+        <div class="title-image-container">
+            <img src="img/titulo.png" alt="La Gran Aventura de Sofía en Japón" class="title-image">
+        </div>
 
         <div id="section-0" class="section active">
             <h2>Introducción</h2>
-            <div class="image-placeholder-horizontal"></div> <div class="content-wrapper"> <div class="image-placeholder-vertical"></div> <div class="text-content"> <p>Sofía apretó su mochila contra el pecho mientras contemplaba, con ojos muy abiertos, el cartel de bienvenida del aeropuerto de Kansai. ¡Por fin había llegado a Japón! Después de meses de espera, estaba a punto de comenzar un viaje de dos semanas junto a su tío David, un fotógrafo de viajes que conocía el país como la palma de su mano, y su padre Javi, quien había organizado esta aventura como regalo por su undécimo cumpleaños.</p>
+            <div class="image-placeholder-horizontal"></div>
+            <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía apretó su mochila contra el pecho mientras contemplaba, con ojos muy abiertos, el cartel de bienvenida del aeropuerto de Kansai. ¡Por fin había llegado a Japón! Después de meses de espera, estaba a punto de comenzar un viaje de dos semanas junto a su tío David, un fotógrafo de viajes que conocía el país como la palma de su mano, y su padre Javi, quien había organizado esta aventura como regalo por su undécimo cumpleaños.</p>
                      <p>"¿Lista para la aventura, pequeña exploradora?" preguntó su tío David, ajustándose la correa de su cámara fotográfica.</p>
                      <p>"¡Más que lista!" respondió Sofía con entusiasmo, aunque una mezcla de nervios y emoción le hacía cosquillas en el estómago.</p>
                      <p>Su padre le pasó el brazo por los hombros. "Recuerda, Sofi, este viaje es tuyo. Tú decides qué quieres ver y hacer. Nosotros solo somos tus compañeros de aventuras."</p>
@@ -1436,12 +1434,12 @@
              <div class="content-wrapper">
                  <div class="image-placeholder-vertical"></div>
                  <div class="text-content">
-                     <p>Para su última aventura, visitan el Cruce de Shibuya, la intersección más concurrida del mundo. Se sitúan junto a la estatua de Hachikō.</p>
-                     <p>"La historia de Hachikō es un símbolo de lealtad," explica su padre.</p>
-                     <p>Observan el cruce: cuando los semáforos se ponen en rojo, una marea humana cruza en todas direcciones. Un caos organizado.</p>
-                     <p>"¡Vamos a cruzar!" propone Sofía.</p>
-                     <p>Se unen a la multitud y experimenta la emoción de ser parte del flujo.</p>
-                     <p>Después, suben al Starbucks con vistas al cruce. Contemplan varias rondas.</p>
+                     <p>Para su última aventura en Japón, Sofía y su familia visitan el famoso Cruce de Shibuya, probablemente la intersección peatonal más concurrida del mundo. Se sitúan frente a la estación de Shibuya, junto a la estatua de Hachikō, el leal perro que esperó a su dueño durante años después de su muerte.</p>
+                     <p>"La historia de Hachikō es un símbolo de lealtad y devoción," explica el padre de Sofía mientras acarician la estatua de bronce, ya brillante por las innumerables manos que la han tocado.</p>
+                     <p>Desde allí observan el espectacular cruce. Cuando los semáforos se ponen en rojo para los coches, una marea humana de hasta 3.000 personas cruza simultáneamente en todas direcciones. Es un caos organizado, una coreografía urbana perfectamente sincronizada.</p>
+                     <p>"¡Vamos a cruzar!" propone Sofía entusiasmada.</p>
+                     <p>Se unen a la multitud en la siguiente oleada, y Sofía experimenta la emoción de ser parte de este flujo humano, como un pequeño pez en un enorme banco. A pesar de la cantidad de gente, nadie choca con nadie; todos se mueven con una cortesía y eficiencia asombrosas.</p>
+                     <p>Después, suben al Starbucks situado frente al cruce, conocido por tener una de las mejores vistas para observar este fenómeno urbano desde arriba. Mientras disfrutan de sus bebidas, contemplan varias rondas de cruce, hipnotizados por el ritmo de la ciudad.</p>
                      <p>"Es como ver el latido del corazón de Tokio," reflexiona Sofía.</p>
                  </div>
             </div>
@@ -1449,6 +1447,7 @@
                 <button onclick="showSection(7)">Finalizar tu viaje por Japón con una vista desde Tokyo Skytree.</button>
             </div>
         </div>
+
 
     </div><script>
         function clearImagesAndLayout(sectionDiv) {
@@ -1458,42 +1457,34 @@
             const verticalPlaceholder = sectionDiv.querySelector('.image-placeholder-vertical');
             if (verticalPlaceholder) verticalPlaceholder.innerHTML = '';
 
-            // Remove layout classes from the section element
             sectionDiv.classList.remove('has-vertical-image', 'has-horizontal-image', 'image-left', 'image-right');
         }
 
         function insertImage(sectionDiv, imgElement) {
-            clearImagesAndLayout(sectionDiv); // Ensure clean slate and remove old layout classes
-
-            // Default image styles (applied via CSS now)
-            const imgClone = imgElement.cloneNode(true); // Clone to avoid node reuse issues
-
-             // Determine orientation (adjust multiplier if needed for aspect ratio preferences)
+            clearImagesAndLayout(sectionDiv);
+            const imgClone = imgElement.cloneNode(true);
+            // Determine orientation (Treat as vertical if noticeably taller than wide)
             const isVertical = imgElement.naturalHeight > imgElement.naturalWidth * 1.1;
 
             if (isVertical) {
-                // Vertical Image Setup
                 const placeholder = sectionDiv.querySelector('.image-placeholder-vertical');
                 if (placeholder) {
                     placeholder.appendChild(imgClone);
                     sectionDiv.classList.add('has-vertical-image');
-
-                    // Alternate left/right alignment based on section number
                     const sectionNum = parseInt(sectionDiv.id.split('-')[1] || 0);
+                    // Alternate left/right alignment
                     if (sectionNum % 2 === 0) {
-                         // Example: Even numbers image right
-                         sectionDiv.classList.add('image-right');
+                         sectionDiv.classList.add('image-right'); // Even: Image Right
                     } else {
-                         // Example: Odd numbers image left
-                         sectionDiv.classList.add('image-left');
+                         sectionDiv.classList.add('image-left');  // Odd: Image Left
                     }
-                } else { // Fallback just in case
+                } else { // Fallback if structure is somehow broken
                     const fallbackPlaceholder = sectionDiv.querySelector('.image-placeholder-horizontal');
                     if(fallbackPlaceholder) fallbackPlaceholder.appendChild(imgClone);
-                    sectionDiv.classList.add('has-horizontal-image'); // Fallback display mode
+                    sectionDiv.classList.add('has-horizontal-image');
                 }
             } else {
-                // Horizontal Image Setup
+                // Horizontal Image
                 const placeholder = sectionDiv.querySelector('.image-placeholder-horizontal');
                 if (placeholder) {
                      placeholder.appendChild(imgClone);
@@ -1510,7 +1501,6 @@
                 return;
             }
 
-            // Function to make section visible after image check/insertion
             const activateSection = () => {
                  // Hide all *other* active sections first
                  document.querySelectorAll('.section.active').forEach(activeSection => {
@@ -1537,18 +1527,18 @@
             };
 
             img.onerror = function() {
-                // Image doesn't exist: just show the section (layout classes already cleared)
-                activateSection();
+                // Image doesn't exist or error loading it
+                activateSection(); // Show section without image, layout classes already cleared
             };
 
             // Important: Set src AFTER defining onload/onerror
             img.src = imagePath;
         }
 
-        // Initialize - ensure only the first section is visible on load
+        // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
+                section.classList.remove('active'); // Ensure clean state on load
             });
             showSection(0); // Activate intro, triggering its image check
         });
