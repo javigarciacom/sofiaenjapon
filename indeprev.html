@@ -69,7 +69,7 @@
         h2 { /* Scene Title */
             color: var(--title-color);
             text-align: center;
-            margin-bottom: 25px; /* More space below title */
+            margin-bottom: 15px; /* Reduced margin below title */
             font-size: 1.8em;
             margin-top: 0;
         }
@@ -80,6 +80,7 @@
              margin-top: 30px; /* Space ABOVE map */
              margin-bottom: 0; /* Reset bottom margin, choices will handle below space */
              line-height: 0; /* Prevent extra space */
+             min-height: 1px; /* Ensure div takes space even if empty */
          }
 
          .location-map-placeholder img {
@@ -88,7 +89,7 @@
              max-height: 200px; /* INCREASED SIZE x2 */
              width: auto;
              height: auto;
-             border-radius: 8px;
+             border-radius: 8px; /* Slightly larger radius */
              background-color: #eee; /* Placeholder bg */
          }
         /* --- End Location Map --- */
@@ -251,24 +252,20 @@
 
         <div id="section-0" class="section active">
             <h2>Introducción</h2>
-
             <div class="image-placeholder-horizontal"></div>
             <div class="content-wrapper">
                  <div class="image-placeholder-vertical"></div>
                  <div class="text-content">
-                     <p>Sofía apretó su mochila contra el pecho mientras contemplaba, con ojos muy abiertos, el cartel de bienvenida del aeropuerto de Kansai. ¡Por fin había llegado a Japón! Después de meses de espera, estaba a punto de comenzar un viaje de dos semanas junto a su tío David, un fotógrafo de viajes que conocía el país como la palma de su mano, y su padre Javi, quien había organizado esta aventura como regalo por su undécimo cumpleaños.</p>
-                     <p>"¿Lista para la aventura, pequeña exploradora?" preguntó su tío David, ajustándose la correa de su cámara fotográfica.</p>
-                     <p>"¡Más que lista!" respondió Sofía con entusiasmo, aunque una mezcla de nervios y emoción le hacía cosquillas en el estómago.</p>
-                     <p>Su padre le pasó el brazo por los hombros. "Recuerda, Sofi, este viaje es tuyo. Tú decides qué quieres ver y hacer. Nosotros solo somos tus compañeros de aventuras."</p>
-                     <p>Sofía sonrió. Le encantaba tomar decisiones, aunque a veces resultaba difícil elegir. El itinerario incluía visitas a Osaka, Nara, Õmihachiman, Kanazawa, Kioto y Tokio. ¡Tantos lugares por descubrir!</p>
-                     <p>Mientras caminaban hacia la estación de tren, Sofía sacó su diario de viaje. En la primera página había escrito: "Mi aventura en Japón - Cada elección abre una nueva historia".</p>
-                     <p>Y así comenzó su viaje...</p>
+                    <p>Sofía apretó su mochila contra el pecho mientras contemplaba, con ojos muy abiertos, el cartel de bienvenida del aeropuerto de Kansai. ¡Por fin había llegado a Japón! Después de meses de espera, estaba a punto de comenzar un viaje de dos semanas junto a su tío David, un fotógrafo de viajes que conocía el país como la palma de su mano, y su padre Javi, quien había organizado esta aventura como regalo por su undécimo cumpleaños.</p>
+                    <p>"¿Lista para la aventura, pequeña exploradora?" preguntó su tío David, ajustándose la correa de su cámara fotográfica.</p>
+                    <p>"¡Más que lista!" respondió Sofía con entusiasmo, aunque una mezcla de nervios y emoción le hacía cosquillas en el estómago.</p>
+                    <p>Su padre le pasó el brazo por los hombros. "Recuerda, Sofi, este viaje es tuyo. Tú decides qué quieres ver y hacer. Nosotros solo somos tus compañeros de aventuras."</p>
+                    <p>Sofía sonrió. Le encantaba tomar decisiones, aunque a veces resultaba difícil elegir. El itinerario incluía visitas a Osaka, Nara, Õmihachiman, Kanazawa, Kioto y Tokio. ¡Tantos lugares por descubrir!</p>
+                    <p>Mientras caminaban hacia la estación de tren, Sofía sacó su diario de viaje. En la primera página había escrito: "Mi aventura en Japón - Cada elección abre una nueva historia".</p>
+                    <p>Y así comenzó su viaje...</p>
                  </div>
             </div>
-
-            <div class="location-map-placeholder">
-                  </div>
-
+            <div class="location-map-placeholder"></div>
              <div class="choices">
                  <button onclick="showSection(1)">Comenzar la Aventura en Osaka</button>
              </div>
@@ -280,12 +277,10 @@
              <div class="content-wrapper">
                  <div class="image-placeholder-vertical"></div>
                  <div class="text-content">
-                     <p>El tren bala los dejó en la bulliciosa ciudad de Osaka. Después de dejar las maletas en el hotel, era hora de comenzar a explorar. El estómago de Sofía gruñó, recordándole que no había comido nada desde el desayuno en el avión. "¿Qué te gustaría hacer primero, Sofi?" preguntó su padre.</p>
+                    <p>El tren bala los dejó en la bulliciosa ciudad de Osaka. Después de dejar las maletas en el hotel, era hora de comenzar a explorar. El estómago de Sofía gruñó, recordándole que no había comido nada desde el desayuno en el avión. "¿Qué te gustaría hacer primero, Sofi?" preguntó su padre.</p>
                  </div>
              </div>
-
              <div class="location-map-placeholder"></div>
-
              <div class="choices">
                 <p>Sofía consideró sus opciones:</p>
                  <button onclick="showSection(8)">Visitar el famoso Castillo de Osaka y aprender sobre su historia.</button>
@@ -302,20 +297,105 @@
                     <p>Sofía, su padre y su tío se adentran por un sendero menos transitado del Parque de Nara. Los árboles se vuelven más densos y los sonidos de otros turistas se desvanecen. De repente, un ciervo de pelaje casi plateado aparece frente a ellos, mirándolos fijamente con ojos inteligentes.</p>
                     <p>"Nunca había visto un ciervo así," susurra el tío David, preparando su cámara.</p>
                     <p>El ciervo parece querer que lo sigan, dando unos pasos y luego volteando a mirarlos.</p>
-                     <p>"Parece que quiere llevarnos a algún sitio," dice Sofía.</p>
+                    <p>"Parece que quiere llevarnos a algún sitio," dice Sofía.</p>
                  </div>
             </div>
-
             <div class="location-map-placeholder"></div>
-
             <div class="choices">
                 <button onclick="showSection(15)">Decides seguir al misterioso ciervo.</button>
                 <button onclick="showSection(23)">Prefieres volver al sendero principal y continuar con la visita normal.</button>
             </div>
         </div>
 
+        <div id="section-3" class="section">
+            <h2>Descubriendo el mercado tradicional</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                    <p>En el mercado tradicional de Kanazawa, los puestos rebosan de artesanías, telas, cerámicas y alimentos. El aire huele a incienso y a umami. Sofía se detiene ante un puesto donde una anciana fabrica pequeñas muñecas kokeshi. La mujer sonríe a Sofía y le ofrece pintar una muñeca ella misma. En otra dirección, Sofía ve un taller donde enseñan a hacer washi, el papel tradicional japonés.</p>
+                    <p>"¿Qué te gustaría hacer, Sofi?" pregunta su tío.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(19)">Decides aprender a pintar una muñeca kokeshi.</button>
+                <button onclick="showSection(27)">Prefieres participar en el taller de papel washi.</button>
+            </div>
+        </div>
+
+        <div id="section-4" class="section">
+            <h2>El castillo sobre el lago</h2> <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Mientras exploran el Castillo de Hikone, una densa niebla comienza a envolver la estructura. Los demás turistas se han marchado debido al cambio de clima, pero el padre de Sofía sugiere continuar un poco más.</p> <p>"Este castillo es uno de los doce castillos originales de Japón que han sobrevivido desde la era feudal," explica su tío. "Fue construido a principios del siglo XVII y está junto al Lago Biwa, el lago más grande de Japón. De ahí viene la niebla que estamos viendo."</p> <p>La niebla es ahora tan espesa que apenas pueden ver unos metros adelante. Sofía tiene la extraña sensación de estar en un lugar entre dos mundos.</p> </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(32)">Decides continuar explorando más profundo en el castillo envuelto en niebla.</button> <button onclick="showSection(17)">Prefieres sugerir que regresen antes de que empeore la visibilidad.</button> </div>
+        </div>
+
+        <div id="section-5" class="section">
+            <h2>El festival inesperado</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Al llegar al pequeño pueblo cerca de Õmihachiman, Sofía y su familia descubren que están celebrando un matsuri (festival) local. Las calles están decoradas con linternas de papel y hay puestos de juegos y comida por todas partes.</p>
+                     <p>Un grupo de niños locales vestidos con yukatas coloridos invitan a Sofía a unirse a un baile tradicional que están practicando para la presentación de esa noche. Por otro lado, su tío ha descubierto un taller donde están enseñando a hacer máscaras tradicionales.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(24)">Decides unirte al grupo de baile.</button>
+                <button onclick="showSection(35)">Prefieres aprender a hacer máscaras tradicionales.</button>
+            </div>
+        </div>
+
+        <div id="section-6" class="section">
+            <h2>La tienda de los mil juguetes</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>En Akihabara, Sofía queda maravillada ante una tienda de juguetes y figuras de anime que parece contener todas las series que jamás ha imaginado. Mientras explora los pasillos, se encuentra con dos situaciones interesantes:</p>
+                     <ul>
+                         <li>En el segundo piso, descubre una competencia de un juego de cartas que no conoce, pero parece fascinante. Los participantes la invitan a aprender y participar.</li>
+                         <li>En el tercer piso, hay una exhibición de robótica donde los visitantes pueden programar pequeños robots para realizar tareas sencillas.</li>
+                     </ul>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(38)">Decides aprender el juego de cartas y participar en la competencia.</button>
+                <button onclick="showSection(26)">Prefieres ir a la exhibición de robótica.</button>
+            </div>
+        </div>
+
+        <div id="section-7" class="section">
+            <h2>El final del viaje</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>El último día en Tokio, Sofía contempla la ciudad desde la terraza de observación del Tokyo Skytree. Las dos semanas han pasado volando, llenas de aventuras, descubrimientos y decisiones que han hecho de este viaje algo único e irrepetible.</p>
+                     <p>"¿Qué ha sido lo que más te ha gustado del viaje, Sofi?" pregunta su padre.</p>
+                     <p>Sofía sonríe, pensando en todas las experiencias que ha vivido: los ciervos de Nara, los templos de Kioto, los mercados de Kanazawa, la tecnología de Tokio, la comida deliciosa, la gente amable...</p>
+                     <p>"Todo," responde finalmente. "Me ha gustado todo, pero sobre todo tomar mis propias decisiones y crear mi propia aventura."</p>
+                     <p>Su tío David le entrega un álbum con las fotografías que ha ido tomando durante el viaje. "Para que nunca olvides tu gran aventura en Japón."</p>
+                     <p>Sofía abraza el álbum contra su pecho, sabiendo que estos recuerdos la acompañarán toda la vida. Y aunque el viaje termina, sabe que esta ha sido solo la primera de muchas aventuras.</p>
+                 </div>
+            </div>
+             <div class="location-map-placeholder"></div>
+             <h3>FIN DE LA AVENTURA</h3>
+            <div class="choices">
+                <button onclick="showSection(0)">¿Quieres vivir otra aventura? (Volver al inicio)</button>
+            </div>
+        </div>
+
         <div id="section-8" class="section">
-             <h2>El majestuoso Castillo de Osaka</h2>
+            <h2>El majestuoso Castillo de Osaka</h2>
              <div class="image-placeholder-horizontal"></div>
              <div class="content-wrapper">
                  <div class="image-placeholder-vertical"></div>
@@ -326,9 +406,7 @@
                      <p>"Mira, papá, ¡se puede ver toda Osaka desde aquí!"</p>
                  </div>
             </div>
-
             <div class="location-map-placeholder"></div>
-
             <div class="choices">
                 <p>Después de explorar el castillo, tienen dos opciones para continuar el día:</p>
                 <button onclick="showSection(16)">Visitar el Museo de Historia de Osaka para aprender más sobre la ciudad.</button>
@@ -336,8 +414,64 @@
             </div>
         </div>
 
+        <div id="section-9" class="section">
+            <h2>La ciudad futurista</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía y su familia llegan a Odaiba, el distrito futurista de Tokio. Frente a ellos se extiende un panorama que parece sacado de una película de ciencia ficción: edificios ultramodernos, la enorme estatua de Gundam, centros comerciales vanguardistas y el Rainbow Bridge que cruza la bahía.</p>
+                     <p>"¡Esto es increíble!" exclama Sofía. "¡Parece que estamos en el futuro!"</p>
+                 </div>
+            </div>
+             <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <p>Tienen tiempo de visitar una atracción antes de la cena:</p>
+                <button onclick="showSection(36)">Visitar teamLab Borderless, el museo digital interactivo.</button>
+                <button onclick="showSection(31)">Explorar el Miraikan, el Museo Nacional de Ciencia Emergente e Innovación.</button>
+            </div>
+        </div>
+
+        <div id="section-10" class="section">
+            <h2>El maestro de espadas</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>En el taller de espadas, un anciano maestro forjador los recibe con una reverencia. Su taller está lleno de herramientas tradicionales y un horno de forja brilla al rojo vivo en un rincón.</p>
+                     <p>"Bienvenidos," dice en un inglés con fuerte acento. "Pocos jóvenes se interesan hoy por el arte de la forja tradicional."</p>
+                     <p>El maestro explica a Sofía el proceso de forjado de una katana, que puede llevar meses. Luego, le ofrece participar en la fabricación de un pequeño amuleto de metal que podrá llevarse como recuerdo.</p>
+                     <p>Mientras trabaja bajo la guía del maestro, Sofía siente una conexión con siglos de tradición japonesa. Cuando termina, el maestro examina su trabajo y asiente con aprobación.</p>
+                     <p>"Tienes manos hábiles y un espíritu paciente. Cualidades de un buen artesano."</p>
+                     <p>Al salir del taller con su amuleto, Sofía se siente orgullosa y transformada por la experiencia.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(25)">Continuar el viaje hacia Kioto.</button>
+            </div>
+        </div>
+
+        <div id="section-11" class="section">
+            <h2>El bosque de bambú</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía, su padre y su tío caminan por el majestuoso Bosque de Bambú de Arashiyama. Los altísimos tallos de bambú se mecen suavemente, creando un túnel verde que parece no tener fin. La luz se filtra entre los bambúes, creando patrones danzantes en el suelo.</p>
+                     <p>"Este lugar parece mágico," susurra Sofía, temiendo romper la tranquilidad del bosque con su voz.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <p>Mientras avanzan por el sendero, llegan a una bifurcación:</p>
+                <button onclick="showSection(29)">Tomar el camino que lleva hacia el Templo Tenryu-ji.</button>
+                <button onclick="showSection(22)">Seguir el sendero que lleva más profundo en el bosque.</button>
+            </div>
+        </div>
+
         <div id="section-12" class="section">
-             <h2>Delicias en Dotonbori</h2>
+            <h2>Delicias en Dotonbori</h2>
              <div class="image-placeholder-horizontal"></div>
              <div class="content-wrapper">
                  <div class="image-placeholder-vertical"></div>
@@ -347,25 +481,1089 @@
                      <p>Sofía observa con fascinación cómo preparan los takoyaki, bolitas de masa rellenas de pulpo, y los okonomiyaki, una especie de tortilla con diversos ingredientes. Su estómago gruñe aún más fuerte.</p>
                  </div>
             </div>
-
             <div class="location-map-placeholder"></div>
-
             <div class="choices">
                 <button onclick="showSection(20)">Probar los takoyaki y otras comidas callejeras mientras paseas.</button>
                 <button onclick="showSection(30)">Sentarte en un restaurante local para disfrutar de un okonomiyaki completo.</button>
             </div>
         </div>
 
-        </div><script>
+        <div id="section-13" class="section">
+            <h2>El templo milenario</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía y su familia llegan al Kinkaku-ji, el famoso Pabellón Dorado de Kioto. El templo, cubierto de pan de oro, resplandece bajo el sol, reflejándose perfectamente en el estanque que lo rodea.</p>
+                     <p>"Este templo tiene más de 600 años de historia," explica el tío David. "Aunque fue reconstruido en 1955 después de un incendio, mantiene su diseño original."</p>
+                     <p>Mientras exploran los hermosos jardines, Sofía nota un pequeño camino menos transitado. Al mismo tiempo, su padre le sugiere continuar hacia el Ryoan-ji, famoso por su jardín zen de rocas.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(33)">Explorar el camino menos transitado.</button>
+                <button onclick="showSection(28)">Continuar según lo planeado hacia el Ryoan-ji.</button>
+            </div>
+        </div>
+
+        <div id="section-14" class="section">
+            <h2>La aldea ninja</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                    <p>Al llegar a la atracción ninja, Sofía descubre que es mucho más que un simple museo. ¡Es una aldea ninja completa recreada con gran detalle!</p>
+                    <p>Un "ninja" vestido tradicionalmente los recibe y les explica que pueden participar en un entrenamiento básico o seguir un circuito donde deberán resolver acertijos y superar obstáculos. Los ojos de Sofía brillan de emoción.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(37)">Elegir participar en el entrenamiento básico ninja.</button>
+                <button onclick="showSection(34)">Preferir el circuito de obstáculos y acertijos.</button>
+            </div>
+        </div>
+
+        <div id="section-15" class="section">
+            <h2>Siguiendo al ciervo plateado</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Deciden seguir al misterioso ciervo de pelaje plateado. Los guía por un sendero apenas visible, adentrándose más en el bosque.</p>
+                     <p>"Nunca había visto esta parte del parque," murmura el tío David.</p>
+                     <p>Llegan a un pequeño claro con un diminuto y antiguo santuario oculto. El ciervo se detiene junto a él. Hay una pequeña fuente de piedra y un cartel que cuenta una leyenda: beber de la fuente permite entender el lenguaje de los animales por un breve tiempo.</p>
+                     <p>"¿Será verdad?" pregunta Sofía, intrigada.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(40)">Decides beber de la fuente mágica.</button>
+                <button onclick="showSection(18)">Prefieres simplemente observar y fotografiar.</button>
+            </div>
+        </div>
+
+        <div id="section-16" class="section">
+            <h2>El Museo de Historia de Osaka</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Visitan el Museo de Historia de Osaka. Sofía está fascinada por las maquetas que recrean la ciudad en diferentes épocas, especialmente la del período Edo.</p>
+                     <p>"Es como viajar en el tiempo," comenta.</p>
+                     <p>A través de pantallas interactivas, aprende sobre la vida cotidiana de los habitantes. En un rincón, unos voluntarios ofrecen probarse kimonos tradicionales.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(42)">Deseas probarte un kimono tradicional.</button>
+                <button onclick="showSection(39)">Prefieres continuar explorando el resto del museo.</button>
+            </div>
+        </div>
+
+        <div id="section-17" class="section">
+            <h2>Regreso seguro desde el castillo</h2> <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía sugiere regresar antes de que la niebla se vuelva demasiado espesa. Su padre y su tío están de acuerdo.</p> <p>"Buena decisión, Sofi," dice su padre. "A veces la parte más valiente de una aventura es saber cuándo dar un paso atrás."</p> <p>Mientras descienden cuidadosamente por las escaleras del castillo, la niebla comienza a disiparse un poco, revelando vistas espectaculares del Lago Biwa y el paisaje circundante. El tío David aprovecha para tomar algunas fotografías extraordinarias del castillo emergiendo de las nubes, con el enorme lago como telón de fondo.</p> <p>"Estas fotos son mágicas," comenta, mostrándoselas a Sofía en la pantalla de su cámara. "A veces, los momentos más hermosos ocurren cuando menos los esperamos."</p> <p>Ya fuera del castillo, encuentran un pequeño café donde sirven amazake, una bebida dulce tradicional hecha de arroz fermentado. Mientras disfrutan de la bebida caliente, planean el resto de su día.</p> </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(25)">Continuar tu viaje hacia Kioto.</button> </div>
+        </div>
+
+        <div id="section-18" class="section">
+            <h2>El santuario en el bosque</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía decide no beber de la fuente. Observa el hermoso santuario mientras su tío toma fotografías. El ciervo plateado permanece a su lado. Sofía se acerca y acaricia su suave pelaje.</p>
+                     <p>"Creo que has hecho un amigo," comenta su padre.</p>
+                     <p>Después de unos minutos, el ciervo los guía de regreso al sendero principal. Antes de llegar a la zona transitada, el animal se detiene, los mira una última vez y desaparece.</p>
+                     <p>Sofía siente que ha compartido un momento especial.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(5)">Continuar tu viaje hacia Õmihachiman.</button>
+            </div>
+        </div>
+
+        <div id="section-19" class="section">
+            <h2>La muñeca kokeshi</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía se sienta junto a la anciana artesana. Le enseña cómo aplicar los colores a la muñeca de madera.</p>
+                     <p>"Kokeshi ser muñeca muy antigua," explica. "Cada región tener su propio estilo."</p>
+                     <p>Sofía decora su muñeca con flores de cerezo y patrones geométricos. Su tío captura el momento. Cuando termina, la anciana le dice a su padre (traducido): "Tiene un espíritu artístico y su kokeshi refleja su personalidad: alegre y armoniosa."</p>
+                     <p>Sofía recibe su creación envuelta en papel de seda. Es un recuerdo que atesorará para siempre.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(43)">Continuar hacia Kanazawa y visitar el Jardín Kenroku-en.</button>
+            </div>
+        </div>
+
+        <div id="section-20" class="section">
+            <h2>Sabores de Osaka</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Deciden probar delicias callejeras en Dotonbori. Compran takoyaki y Sofía observa cómo el cocinero los prepara.</p>
+                     <p>"¡Cuidado, están muy calientes!" advierte su padre.</p>
+                     <p>Sofía sopla y da el primer mordisco. "¡Mmm! Está delicioso," dice.</p>
+                     <p>Continúan probando kushikatsu, okonomiyaki para llevar y taiyaki (pastel en forma de pez).</p>
+                     <p>Con el estómago satisfecho, Sofía está lista para seguir explorando.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(44)">Visitar el cercano acuario Kaiyukan.</button>
+                <button onclick="showSection(41)">Subir a la noria Tempozan para ver las vistas al atardecer.</button>
+            </div>
+        </div>
+
+        <div id="section-21" class="section">
+            <h2>El Parque del Castillo</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Deciden disfrutar de la tranquilidad del Parque del Castillo de Osaka. Tiene amplios espacios verdes, estanques y cerezos.</p>
+                     <p>"En primavera, este parque se llena para el hanami," explica el tío David.</p>
+                     <p>Encuentran un lugar perfecto para un picnic con vista al castillo. Disfrutan de onigiri mientras observan a gente practicando tai chi o dibujando.</p>
+                     <p>Después de comer, Sofía ve botes de remo disponibles y un cartel anunciando una ceremonia de té cercana.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(45)">Querer alquilar un bote y remar.</button>
+                <button onclick="showSection(49)">Preferir asistir a la ceremonia de té.</button>
+            </div>
+        </div>
+
+        <div id="section-22" class="section">
+            <h2>Más allá del bosque de bambú</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía elige el sendero menos transitado. El sonido de otros turistas se desvanece, reemplazado por el crujido del bambú.</p>
+                     <p>"Este debe ser uno de los sonidos más relajantes," comenta Sofía.</p>
+                     <p>Llegan a un pequeño santuario casi olvidado, dedicado a los espíritus del bosque. Un monje anciano aparece silenciosamente y les ofrece participar en una breve meditación guiada.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(47)">Decides participar en la meditación.</button>
+                <button onclick="showSection(50)">Prefieres agradecer y continuar explorando.</button>
+            </div>
+        </div>
+
+        <div id="section-23" class="section">
+            <h2>De vuelta al sendero principal</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía decide no alejarse. "Quizás el ciervo solo busca galletas," sugiere.</p>
+                     <p>Regresan al camino principal. Compran galletas para ciervos y pronto están rodeados de animales que hacen reverencias para pedir comida.</p>
+                     <p>"Aprendieron a hacer reverencias para conseguir comida," explica el tío David.</p>
+                     <p>Sofía se divierte alimentándolos. Luego, continúan hacia el Templo Todai-ji para ver el Gran Buda.</p>
+                     <p>Queda impresionada por la enormidad de la estructura y la estatua.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(5)">Continuar tu viaje hacia Õmihachiman.</button>
+            </div>
+        </div>
+
+        <div id="section-24" class="section">
+            <h2>El baile del festival</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía decide unirse al grupo de baile. Los niños la reciben con sonrisas y le enseñan los movimientos del Bon Odori, un baile para honrar a los ancestros.</p>
+                     <p>El baile cuenta una historia sobre la cosecha. Sofía practica durante una hora y aprende rápido. Su padre y tío la observan.</p>
+                     <p>Al atardecer, participa en el baile principal junto a los niños del pueblo, bajo la luz de las linternas. Es una experiencia inolvidable.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(3)">Continuar tu viaje hacia Kanazawa.</button>
+            </div>
+        </div>
+
+        <div id="section-25" class="section">
+            <h2>El camino a Kioto</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Toman el tren hacia Kioto, la antigua capital imperial. El tío David le cuenta historias sobre la ciudad.</p>
+                     <p>"Kioto fue la capital por más de mil años y conserva muchísimos edificios históricos," explica.</p>
+                     <p>Se instalan en un ryokan tradicional, con tatamis y futones. Sofía está emocionada.</p>
+                     <p>"Mañana tenemos muchas opciones," dice su padre. "¿Qué te gustaría ver primero?"</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(13)">Visitar el famoso Templo Dorado (Kinkaku-ji).</button>
+                <button onclick="showSection(11)">Explorar el Bosque de Bambú de Arashiyama.</button>
+            </div>
+        </div>
+
+        <div id="section-26" class="section">
+            <h2>La exhibición de robótica</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía visita la exhibición de robótica. Hay varios tipos de robots. Un instructor le enseña a programar un pequeño robot usando una tableta.</p>
+                     <p>"¡Mira, papá! ¡Lo hice moverse como quería!" exclama cuando el robot completa el circuito.</p>
+                     <p>Interactúa con un robot humanoide más avanzado que puede conversar. Queda fascinada.</p>
+                     <p>La experiencia despierta su interés por la programación y la tecnología.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(9)">Continuar explorando Tokio y visitar el barrio de Odaiba.</button>
+            </div>
+        </div>
+
+        <div id="section-27" class="section">
+            <h2>El taller de papel washi</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía participa en el taller de papel washi. La instructora explica que es un arte con más de 1.300 años de historia.</p>
+                     <p>"Washi es parte de nuestra cultura," dice.</p>
+                     <p>Sofía aprende el proceso: preparar la pulpa, filtrarla, prensar y secar la hoja.</p>
+                     <p>"¡Requiere mucha paciencia!" dice.</p>
+                     <p>Crea dos hojas de papel con pétalos incrustados. La instructora le muestra cómo se puede usar. "Has creado algo que puede durar cientos de años," le dice. "El papel washi bien cuidado puede sobrevivir por generations."</p>
+                     <p>Sofía sale sintiéndose conectada con una tradición milenaria.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(43)">Continuar tu viaje hacia el Jardín Kenroku-en de Kanazawa.</button>
+            </div>
+        </div>
+
+        <div id="section-28" class="section">
+            <h2>El jardín zen de Ryoan-ji</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Se dirigen al Templo Ryoan-ji y su famoso jardín zen de rocas. Consiste en grava rastrillada con 15 rocas dispuestas en grupos. Desde donde se sientan, siempre hay al menos una roca oculta.</p>
+                     <p>"Está diseñado para la meditación," explica el tío David. "Se dice que solo al alcanzar la iluminación puedes ver todas las rocas a la vez."</p>
+                     <p>Sofía observa, fascinada por la simplicidad. Se sienta en silencio. Poco a poco siente una extraña calma.</p>
+                     <p>"Es como si el jardín te obligara a aquietar tu mente," comenta.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                 <p>Después de esta experiencia tranquila, ¿qué quieres hacer?</p>
+                <button onclick="showSection(48)">Visitar el colorido Santuario Fushimi Inari.</button>
+                <button onclick="showSection(46)">Explorar el distrito de Gion.</button>
+            </div>
+        </div>
+
+        <div id="section-29" class="section">
+            <h2>El Templo Tenryu-ji</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía elige ir al Templo Tenryu-ji, Patrimonio de la Humanidad. Les recibe un magnífico jardín paisajístico diseñado hace casi 700 años, que parece fusionarse con las montañas ("shakkei").</p>
+                     <p>"Este jardín ha permanecido sin cambios desde el siglo XIV," explica el tío David.</p>
+                     <p>Sofía recorre los pasillos, maravillándose con los dragones pintados en el techo y observando a los monjes barrer.</p>
+                     <p>"Hay algo muy pacífico aquí," comenta. "Como si el tiempo fuera más lento."</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(46)">Continuar explorando Kioto y visitar el distrito de Gion.</button>
+            </div>
+        </div>
+
+        <div id="section-30" class="section">
+            <h2>La experiencia del okonomiyaki</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Entran en un restaurante familiar especializado en okonomiyaki, con parrillas en las mesas.</p>
+                     <p>La camarera explica que "okonomi" significa "lo que te gusta". Les traen los ingredientes: masa, col, y complementos. Sofía elige camarones y maíz.</p>
+                     <p>Su padre vierte la masa en la parrilla. Sofía observa cómo se cocina. Usan espátulas para darle la vuelta.</p>
+                     <p>"¡Es como hacer una pizza, pero diferente!" exclama.</p>
+                     <p>Al terminar, añaden salsas, mayonesa, copos de bonito y nori. El resultado es delicioso y Sofía se siente orgullosa.</p>
+                     <p>"¡Este ha sido el mejor almuerzo de toda mi vida!" declara Sofía.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(44)">Visitar el acuario Kaiyukan después de comer.</button>
+                <button onclick="showSection(51)">Explorar el distrito comercial de Shinsaibashi.</button>
+            </div>
+        </div>
+
+        <div id="section-31" class="section">
+            <h2>El Museo de Ciencia e Innovación</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Visitan el Miraikan. Sofía queda asombrada por las exhibiciones futuristas. Los recibe ASIMO, el robot de Honda, que hace una demostración.</p>
+                     <p>Sofía observa boquiabierta.</p>
+                     <p>"La tecnología japonesa siempre ha estado a la vanguardia," comenta su tío.</p>
+                     <p>Le impacta el "Geo-Cosmos", un enorme globo terráqueo LED que muestra datos en tiempo real. Participa en un taller sobre energía sostenible.</p>
+                     <p>"Cuando sea mayor, quiero ser científica," dice con determinación.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(59)">Ir a DiverCity Tokyo Plaza para ver la estatua gigante de Gundam.</button>
+                <button onclick="showSection(53)">Preferir visitar los parques de la isla artificial de Odaiba.</button>
+            </div>
+        </div>
+
+        <div id="section-32" class="section">
+             <h2>Misterios en la niebla de Hikone</h2> <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía, intrigada por el misterio del castillo envuelto en niebla, decide aventurarse más profundamente en la estructura. Su padre y su tío la siguen de cerca mientras suben por escaleras de piedra que parecen no tener fin. La niebla se hace más densa a medida que avanzan, y los sonidos del exterior se desvanecen por completo.</p> <p>De repente, Sofía tiene la extraña sensación de que han cruzado algún tipo de umbral invisible, pues la arquitectura a su alrededor parece sutilmente diferente, más antigua y detallada.</p> <p>En un amplio salón con vista al Lago Biwa que no deberían poder ver con tanta niebla, encuentran a una anciana vestida con ropas tradicionales que parece estar esperándolos. Les habla en un inglés antiguo pero perfectamente comprensible.</p> <p>"Pocos visitantes tienen el valor de aventurarse tan lejos cuando la niebla del lago abraza al castillo," dice con una sonrisa enigmática. "Aquellos que lo hacen, pueden ver el castillo como era en los días del clan Ii."</p> <p>La anciana les ofrece té y les cuenta historias sobre el poderoso daimyō Ii Naosuke y el castillo que no aparecen en ninguna guía turística.</p> <p>También le regala a Sofía un pequeño amuleto de protección con la figura de Hikonyan, el gato samurái mascota de la ciudad. Cuando finalmente se despiden y descienden, la niebla comienza a disiparse.</p> <p>Extrañamente, nadie más en el castillo parece haber notado su prolongada ausencia.</p> </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(25)">Continuar tu viaje hacia Kioto.</button> </div>
+        </div>
+
+        <div id="section-33" class="section">
+            <h2>El camino secreto</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía explora el camino menos transitado. Serpentea entre árboles y santuarios escondidos hasta una colina con una vista panorámica del Pabellón Dorado que no aparece en las guías.</p>
+                     <p>"¡Increíble! Podemos ver todo el templo reflejado," exclama.</p>
+                     <p>Un monje anciano se acerca, sorprendido. Les explica que allí meditaba Yoshimitsu, quien construyó el Pabellón. Como gesto especial, los invita a una breve ceremonia de té privada en una cabaña cercana.</p>
+                     <p>Es una experiencia auténtica. Sofía siente que ha descubierto un tesoro oculto.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(46)">Continuar explorando Kioto y visitar el distrito de Gion.</button>
+            </div>
+        </div>
+
+        <div id="section-34" class="section">
+            <h2>El desafío ninja</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía opta por el circuito de obstáculos y acertijos. Recibe una camiseta negra y empieza la primera prueba. Combina desafíos físicos (equilibrio, escalar, arrastrarse) con acertijos ninja. Para avanzar, deben resolver códigos o encontrar objetos.</p>
+                     <p>Descubre que tiene talento para los acertijos. Su padre y tío la animan.</p>
+                     <p>"¡Los ninjas eran como espías antiguos!" exclama mientras descifra un mensaje.</p>
+                     <p>En la prueba final, debe recuperar un pergamino evitando "guardias". Usa técnicas de sigilo y lo logra.</p>
+                     <p>Recibe un certificado de "Ninja Honoraria" y un shuriken de goma.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(9)">Continuar explorando Tokio y visitar el barrio de Odaiba.</button>
+            </div>
+        </div>
+
+        <div id="section-35" class="section">
+            <h2>El arte de las máscaras</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía participa en el taller de máscaras. El maestro explica su importancia en el teatro (Noh, Kyogen).</p>
+                     <p>"Cada máscara contar una historia," dice.</p>
+                     <p>Aprende a modelar arcilla. Elige hacer una máscara de kitsune (zorro). El maestro le cuenta leyendas sobre zorros mágicos.</p>
+                     <p>"En historias, kitsune a veces travieso, a veces sabio," explica.</p>
+                     <p>Pinta su máscara de blanco y rojo. El resultado es hermoso.</p>
+                     <p>"Tienes buen ojo para detalles," elogia el maestro. "Máscara tiene espíritu."</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(3)">Continuar tu viaje hacia Kanazawa.</button>
+            </div>
+        </div>
+
+        <div id="section-36" class="section">
+            <h2>El museo digital TeamLab</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Entran al teamLab Borderless, un espacio de arte digital interactivo. Quedan inmersos en un mundo de luces, colores y sonidos cambiantes.</p>
+                     <p>Cascadas de luz digital fluyen alrededor de sus pies. Flores digitales florecen donde pisan. Sofía corre maravillada.</p>
+                     <p>"¡Esto es como estar dentro de un sueño!" exclama, intentando atrapar mariposas digitales.</p>
+                     <p>La "Sala de Lámparas Flotantes", con cientos de linternas LED que responden a su presencia, es la más impresionante.</p>
+                     <p>"No sabía que la tecnología podía crear algo tan hermoso," comenta Sofía.</p>
+                     <p>Esta visita le muestra una fusión perfecta entre arte y tecnología.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(59)">Visitar después la estatua gigante de Gundam.</button>
+                <button onclick="showSection(53)">Preferir ir a la playa artificial de Odaiba para ver el atardecer.</button>
+            </div>
+        </div>
+
+        <div id="section-37" class="section">
+            <h2>Entrenamiento ninja básico</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía elige el entrenamiento básico ninja. Un instructor con traje negro les da la bienvenida.</p>
+                     <p>"Ninja no solo guerreros," explica. "También maestros de espionaje."</p>
+                     <p>Aprenden movimiento sigiloso y posturas de defensa. La parte favorita de Sofía es lanzar shuriken (de goma). Tras varios intentos, acierta.</p>
+                     <p>"¡Mira, papá! ¡Le di!" exclama.</p>
+                     <p>Aprenden sobre herramientas ninja y ven una demostración de bombas de humo.</p>
+                     <p>Al final, Sofía recibe un pergamino certificando su participación.</p>
+                     <p>"Ahora tú también conocer secretos de ninja," dice el instructor.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(9)">Continuar explorando Tokio y visitar el barrio de Odaiba.</button>
+            </div>
+        </div>
+
+        <div id="section-38" class="section">
+            <h2>El juego de cartas</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía decide aprender el juego de cartas. Los jugadores la reciben con entusiasmo.</p>
+                     <p>"¿Quieres aprender Yu-Gi-Oh!?" pregunta un chico. "Es muy popular aquí."</p>
+                     <p>Le enseñan las reglas: usar monstruos, hechizos y trampas para reducir los puntos de vida del oponente. Sofía aprende rápido.</p>
+                     <p>Le prestan un mazo y participa en un mini-torneo. Aunque pierde, disfruta mucho. La emoción la atrapa.</p>
+                     <p>"¡Esto es más divertido que los juegos en el teléfono!" exclama.</p>
+                     <p>Al despedirse, le regalan un paquete de cartas.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(9)">Continuar explorando Tokio y visitar el barrio de Odaiba.</button>
+            </div>
+        </div>
+
+        <div id="section-39" class="section">
+            <h2>La Osaka moderna</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía explora la parte del museo sobre la Osaka moderna. Aprende sobre la impresionante reconstrucción de la ciudad tras la Segunda Guerra Mundial.</p>
+                     <p>"Es increíble cómo pudieron recuperarse," comenta.</p>
+                     <p>Descubre cómo la Expo '70 transformó la ciudad y contribuyó al "milagro económico japonés". Puede "visitarla" en una simulación virtual.</p>
+                     <p>Desde la terraza de observación, disfrutan de la vista de la Osaka actual.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(12)">Visitar ahora el famoso distrito de Dotonbori.</button>
+                <button onclick="showSection(56)">Preferir visitar el Mercado Kuromon.</button>
+            </div>
+        </div>
+
+        <div id="section-40" class="section">
+            <h2>El don de entender a los animales</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía bebe de la fuente. El agua es fresca y ligeramente dulce. Al principio no nota nada, pero cuando el ciervo plateado se acerca, escucha claramente en su mente:</p>
+                     <p>"Eres diferente a los demás humanos. Puedes ver más allá."</p>
+                     <p>Sofía queda paralizada. "¿Puedo entenderte?" susurra.</p>
+                     <p>"Solo por un corto tiempo," responde el ciervo. "El agua permite a los de corazón puro entender nuestro lenguaje."</p>
+                     <p>El ciervo, un guardián del bosque, le muestra lugares secretos: un estanque donde las hojas nunca caen, un árbol milenario, una colina con vistas. Otros ciervos se acercan y comparten historias.</p>
+                     <p>Es una experiencia mágica.</p>
+                     <p>Con el tiempo, las voces se desvanecen. El don termina, pero deja un recuerdo imborrable.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(5)">Continuar tu viaje hacia Õmihachiman.</button>
+            </div>
+        </div>
+
+        <div id="section-41" class="section">
+            <h2>Atardecer en la noria</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Deciden subir a la noria Tempozan para ver la puesta de sol. Es una de las más grandes de Japón.</p>
+                     <p>"¡Mira qué pequeñitas se ven las personas!" exclama Sofía.</p>
+                     <p>A medida que ascienden, ven la bahía, barcos, el puente y los rascacielos iluminándose.</p>
+                     <p>"Los japoneses tienen una palabra: Yuuyake," comenta el tío David. "Se refiere a la belleza efímera de la puesta de sol."</p>
+                     <p>El cielo se tiñe de naranjas, rojos y púrpuras reflejados en el agua.</p>
+                     <p>"Creo que este es uno de los momentos más bonitos," dice Sofía.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                 <p>¿Qué plan para mañana?</p>
+                <button onclick="showSection(8)">Visitar el Castillo de Osaka.</button>
+                <button onclick="showSection(2)">Ir a Nara a ver los ciervos.</button>
+            </div>
+        </div>
+
+        <div id="section-42" class="section">
+            <h2>La magia del kimono</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía decide probarse un kimono tradicional. Una voluntaria del museo, una señora mayor llamada Yumiko, la guía hacia una sala especial donde guardan una colección de kimonos para que los visitantes puedan experimentar esta parte importante de la cultura japonesa.</p> <p>"Kimono significar 'cosa para vestir', muy simple nombre para ropa muy compleja," explica Yumiko con una sonrisa.</p> <p>Sofía queda impresionada por la cantidad de pasos necesarios para vestir correctamente un kimono: las diferentes capas, la forma específica de cruzar la prenda (siempre izquierda sobre derecha, pues lo contrario solo se usa en funerales), y finalmente el obi, el ancho cinturón que se ata en la espalda con un elaborado nudo.</p> <p>Para Sofía, eligen un kimono furisode de colores vibrantes con mangas largas, tradicionalmente usado por mujeres jóvenes solteras. El patrón de flores de cerezo sobre un fondo azul resalta el color de sus ojos.</p> <p>"¡Es precioso, pero pesa mucho!" exclama Sofía al verse en el espejo, apenas reconociéndose.</p> <p>Su padre y su tío toman muchas fotografías mientras ella aprende a caminar con pasos pequeños y a hacer una reverencia apropiada mientras viste el kimono.</p> <p>"Te ves como una auténtica princesa japonesa," comenta su padre con orgullo.</p> <p>Esta experiencia le da a Sofía una nueva apreciación por la moda tradicional japonesa y las habilidades necesarias para vestirla correctamente.</p> </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(12)">Visitar ahora el famoso distrito de Dotonbori para probar la comida local.</button> <button onclick="showSection(4)">Preferir visitar el Castillo de Hikone, uno de los doce castillos originales de Japón.</button> </div>
+        </div>
+
+        <div id="section-43" class="section">
+            <h2>El magnífico Jardín Kenroku-en</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Visitan el Jardín Kenroku-en, uno de los tres más hermosos de Japón. Integra estanques, arroyos, puentes, árboles y casas de té.</p>
+                     <p>"'Kenroku-en' significa 'jardín de los seis atributos'," explica el tío David (espaciosidad, serenidad, artificialidad, antigüedad, agua, vistas).</p>
+                     <p>Sofía se fascina con los detalles: linternas de piedra, puentes, árboles sostenidos por yukitsuri (estructuras de bambú).</p>
+                     <p>Se detienen en una casa de té para tomar matcha y wagashi.</p>
+                     <p>"Este lugar parece sacado de un cuento," comenta Sofía.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                 <p>¿Qué hacer ahora en Kanazawa?</p>
+                <button onclick="showSection(10)">Visitar el barrio de samuráis Nagamachi.</button>
+                <button onclick="showSection(54)">Explorar el Mercado Omicho.</button>
+            </div>
+        </div>
+
+        <div id="section-44" class="section">
+            <h2>El acuario Kaiyukan</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Visitan el acuario Kaiyukan. El concepto es "El Anillo de Fuego del Pacífico".</p>
+                     <p>La exhibición principal es un tanque enorme con un tiburón ballena, el pez más grande del mundo.</p>
+                     <p>"¡Es tan grande pero parece tan tranquila!" exclama Sofía.</p>
+                     <p>Descubren nutrias, pingüinos, medusas y un túnel transparente con tiburones y rayas. En la zona de contacto, toca estrellas de mar y otros invertebrados.</p>
+                     <p>"Nunca había visto tantas criaturas marinas," comenta. "Me da pena que estén en tanques, pero aprendo sobre ellas."</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(41)">Subir a la noria Tempozan para ver las vistas.</button>
+                <button onclick="showSection(2)">Preferir regresar al hotel para descansar (ir a Nara mañana).</button>
+            </div>
+        </div>
+
+        <div id="section-45" class="section">
+            <h2>Aventura en el estanque</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía convence a su familia de alquilar un bote de remos en el parque del castillo. Reciben chalecos e instrucciones.</p>
+                     <p>"¡Yo quiero remar!" pide. Su padre le enseña.</p>
+                     <p>Navegan disfrutando de vistas únicas del castillo desde el agua.</p>
+                     <p>"Los estanques también eran reservas de agua," explica el tío David.</p>
+                     <p>Descubren un santuario a la diosa Benten en una isla. Dan tres vueltas alrededor para la buena suerte, según la tradición.</p>
+                     <p>Al devolver el bote, Sofía declara que ha sido una de sus experiencias favoritas.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(52)">Explorar otras partes de Osaka, como el Museo de la Ciencia.</button>
+                <button onclick="showSection(2)">Preferir visitar Nara al día siguiente.</button>
+            </div>
+        </div>
+
+        <div id="section-46" class="section">
+            <h2>El misterioso distrito de Gion</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Al atardecer, pasean por Gion, el distrito de geishas. Las fachadas de madera crean una atmósfera del Japón feudal.</p>
+                     <p>"Aquí viven y trabajan geishas y maikos (aprendices)," explica el tío David. "Son artistas que preservan artes tradicionales."</p>
+                     <p>Sofía se maravilla con la arquitectura y las linternas. De repente, ve una maiko cruzando la calle hacia una casa de té.</p>
+                     <p>"¡Mira!" susurra emocionada. Observan discretamente.</p>
+                     <p>Un guía local les ofrece dos opciones: un espectáculo cultural en Gion Corner o visitar una machiya (casa tradicional) restaurada.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(58)">Decidir asistir al espectáculo en el Teatro Gion Corner.</button>
+                <button onclick="showSection(55)">Preferir visitar la machiya.</button>
+            </div>
+        </div>
+
+        <div id="section-47" class="section">
+            <h2>Meditación en el bosque de bambú</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía acepta la invitación del monje a meditar. Los guía a un espacio despejado entre los bambúes.</p>
+                     <p>"En zen, aprender a estar presente," explica. "Escuchar bambú, sentir viento."</p>
+                     <p>Les enseña la postura y a observar la respiración. Al principio, Sofía encuentra difícil quedarse quieta, pero poco a poco se centra en los sonidos del bosque.</p>
+                     <p>"Mente como agua," murmura el monje. "Cuando tranquila, refleja todo."</p>
+                     <p>Después de media hora, el monje hace sonar una campana. Sofía se siente refrescada y clara.</p>
+                     <p>"Nunca había sentido tanta paz," comenta.</p>
+                     <p>El monje les regala amuletos de bambú.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(46)">Continuar explorando Kioto y visitar el distrito de Gion.</button>
+            </div>
+        </div>
+
+        <div id="section-48" class="section">
+            <h2>El túnel de torii en Fushimi Inari</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Se dirigen al Santuario Fushimi Inari, famoso por sus miles de puertas torii naranjas que forman túneles montaña arriba.</p>
+                     <p>"Cada torii fue donado por una empresa o familia como agradecimiento a Inari, dios de la prosperidad," explica el tío David. "Todos tienen inscripciones."</p>
+                     <p>Sofía queda fascinada por el efecto visual. La luz del sol se filtra creando juegos de luces y sombras. En la base, ven estatuas de zorros, mensajeros de Inari.</p>
+                     <p>A medida que suben, el número de turistas disminuye. Llegan a una bifurcación.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(60)">Decidir continuar ascendiendo para ver las vistas desde arriba.</button>
+                <button onclick="showSection(57)">Preferir explorar los pequeños santuarios y jardines escondidos.</button>
+            </div>
+        </div>
+
+        <div id="section-49" class="section">
+            <h2>La ceremonia del té</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía opta por asistir a la ceremonia de té tradicional que se celebra en un pequeño pabellón del parque.</p> <p>Al entrar, se sorprende por la sencillez y elegancia del espacio: tatamis en el suelo, una decoración minimalista y un pequeño nicho (tokonoma) con un arreglo floral y un pergamino con caligrafía.</p> <p>La maestra de té, una mujer de mediana edad vestida con un kimono sobrio, les da la bienvenida con una reverencia y les indica dónde sentarse.</p> <p>A pesar de la barrera del idioma, sus gestos transmiten claramente lo que deben hacer.</p> <p>"La ceremonia del té o chado se basa en cuatro principios," explica en voz baja el tío David, que ha estudiado algo sobre esta tradición.</p> <p>"Armonía con las personas y la naturaleza, respeto hacia los demás, pureza del corazón y la mente, y tranquilidad."</p> <p>Sofía observa fascinada los movimientos precisos y elegantes de la maestra mientras limpia los utensilios, prepara el té matcha (té verde en polvo) y lo sirve.</p> <p>Cada gesto parece una danza coreografiada, refinada a lo largo de siglos.</p> <p>Cuando llega su turno de recibir el té, recuerda las instrucciones: debe girar el cuenco dos veces antes de beber, sorber con apreciación (no es mala educación en Japón) y limpiarse el borde del cuenco antes de devolverlo.</p> <p>"Es amargo pero... interesante," comenta después. "Y me siento muy tranquila después de observar todo el proceso."</p> </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                 <p>¿Qué plan para mañana?</p>
+                <button onclick="showSection(2)">Visitar Nara para ver los famosos ciervos sagrados.</button> <button onclick="showSection(4)">Preferir ir al Castillo de Hikone, considerado uno de los doce castillos originales de Japón.</button> </div>
+        </div>
+
+        <div id="section-50" class="section">
+            <h2>Explorando por cuenta propia</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía agradece al monje pero prefiere explorar por su cuenta. El monje se retira.</p>
+                     <p>"Estos lugares pequeños guardan sorpresas," comenta su padre.</p>
+                     <p>El tío David descubre un sendero detrás del santuario. Lo siguen hasta un claro con un estanque circular que refleja el cielo como un espejo.</p>
+                     <p>"Debe ser un lugar de meditación," susurra el tío David.</p>
+                     <p>Sofía se sienta en una piedra, disfrutando de la tranquilidad. Un pájaro azul se posa cerca.</p>
+                     <p>Este momento de paz se convierte en un recuerdo vívido.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(46)">Continuar explorando Kioto y visitar el distrito de Gion.</button>
+            </div>
+        </div>
+
+        <div id="section-51" class="section">
+            <h2>El distrito comercial de Shinsaibashi</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Deciden explorar Shinsaibashi, el distrito comercial de Osaka. La calle principal, cubierta, está repleta de tiendas.</p>
+                     <p>"¡Mira cuántas tiendas!" exclama Sofía.</p>
+                     <p>Se detienen en una tienda de dulces tradicionales (wagashi) y ven a los artesanos trabajar. Prueban muestras.</p>
+                     <p>Visitan una tienda de papercraft donde Sofía encuentra kits de origami. Su padre le compra uno del Castillo de Osaka.</p>
+                     <p>"Será un recuerdo perfecto," dice Sofía.</p>
+                     <p>Disfrutan observando la mezcla de lo tradicional y lo moderno.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                 <p>¿Qué plan para mañana?</p>
+                <button onclick="showSection(52)">Visitar el Museo de la Ciencia de Osaka.</button>
+                <button onclick="showSection(2)">Ir a Nara a ver los ciervos.</button>
+            </div>
+        </div>
+
+        <div id="section-52" class="section">
+            <h2>El Museo de Ciencia de Osaka</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía y su familia visitan el Museo de Ciencia de Osaka, un edificio futurista con una enorme esfera de acero de 40 metros de diámetro que alberga un planetario.</p> <p>"¡Parece una nave espacial!" exclama Sofía al ver el edificio.</p> <p>Dentro, descubren cuatro pisos de exhibiciones interactivas dedicadas a diferentes campos científicos.</p> <p>Sofía queda fascinada por la sección de robótica, donde puede interactuar con robots de última generación que responden a sus gestos y preguntas.</p> <p>"Japón siempre ha estado a la vanguardia en tecnología robótica," comenta su tío mientras observa a Sofía "conversando" con un robot humanoide.</p> <p>También disfrutan enormemente del espectáculo en el planetario, donde viajan virtualmente a través del sistema solar y más allá, con explicaciones en inglés y japonés.</p> <p>Una de las exhibiciones más divertidas es la que demuestra fenómenos físicos.</p> <p>Sofía se ríe a carcajadas cuando prueba un simulador que muestra cómo se vería y sentiría en diferentes niveles de gravedad, desde la Luna hasta Júpiter.</p> <p>"¡En Júpiter apenas podría moverme, pero en la Luna podría dar unos saltos impresionantes!" comenta entusiasmada.</p> <p>Al final de la visita, Sofía declara que quizás quiera ser científica o ingeniera robótica cuando sea mayor.</p> </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <p>¿Qué plan para mañana?</p>
+                <button onclick="showSection(2)">Visitar Nara para ver los famosos ciervos sagrados.</button> <button onclick="showSection(4)">Preferir ir al Castillo de Hikone, considerado uno de los doce castillos originales de Japón.</button> </div>
+        </div>
+
+        <div id="section-53" class="section">
+            <h2>Los parques de Odaiba</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Exploran los parques de Odaiba, un escape verde con vistas a la bahía y Tokio.</p>
+                     <p>Visitan el Parque Marino con su playa artificial. Pasean por la orilla.</p>
+                     <p>"¡Qué extraño ver una playa con rascacielos!" exclama Sofía.</p>
+                     <p>Van al Parque Shiokaze con la réplica de la Estatua de la Libertad.</p>
+                     <p>"Es mucho más pequeña que la original," comenta su padre.</p>
+                     <p>Al atardecer, se sientan frente a la bahía y ven cómo el sol se pone tras el Rainbow Bridge iluminado. El horizonte de Tokio brilla.</p>
+                     <p>"Este ha sido un día perfecto," suspira Sofía.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(6)">Continuar explorando Tokio y visitar Akihabara.</button>
+                <button onclick="showSection(61)">Preferir visitar el barrio tradicional de Asakusa.</button>
+            </div>
+        </div>
+
+        <div id="section-54" class="section">
+            <h2>El bullicioso Mercado Omicho</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Exploran el Mercado Omicho, "la cocina de Kanazawa". Tiene más de 280 años y casi 200 tiendas de mariscos, verduras y productos locales.</p>
+                     <p>"Ha sido el centro gastronómico desde el período Edo," explica el tío David.</p>
+                     <p>Sofía observa fascinada peces y mariscos extraños: cangrejos de nieve, erizos, algas. Los vendedores les ofrecen muestras. Un pescadero le deja tocar un pulpo vivo.</p>
+                     <p>Almuerzan kaisen-don (cuenco de arroz con marisco crudo fresco).</p>
+                     <p>"Es como si el océano estuviera en mi boca," comenta Sofía. Descubre que le gusta el sabor fresco.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(10)">Visitar después el barrio de samuráis Nagamachi.</button>
+                <button onclick="showSection(25)">Preferir dirigirte a Kioto.</button>
+            </div>
+        </div>
+
+        <div id="section-55" class="section">
+            <h2>La casa tradicional</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía visita una machiya restaurada. El edificio es estrecho pero profundo.</p>
+                     <p>Un guía explica sus características: fachada de madera, patios interiores, pantallas de papel washi, tatamis.</p>
+                     <p>"Funcionaban como vivienda y negocio," explica. "La tienda delante, la familia detrás."</p>
+                     <p>Sofía se fascina con el jardín interior y la cocina tradicional (irori).</p>
+                     <p>El guía muestra cómo se diseñaron para lidiar con las estaciones (ventilación, aislamiento).</p>
+                     <p>"Es como si la casa fuera un ser vivo," comenta Sofía.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(13)">Visitar después el Templo Dorado (Kinkaku-ji).</button>
+                <button onclick="showSection(48)">Preferir explorar el Santuario Fushimi Inari.</button>
+            </div>
+        </div>
+
+        <div id="section-56" class="section">
+            <h2>El Mercado Kuromon</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Visitan el Mercado Kuromon, "La Cocina de Osaka". Tiene más de 170 años y 150 tiendas.</p>
+                     <p>"'Kuromon' significa 'Puerta Negra'," explica el tío David.</p>
+                     <p>Sofía se fascina con la variedad: frutas perfectas, mariscos frescos, dulces, ingredientes desconocidos.</p>
+                     <p>Muchos puestos ofrecen comida para comer allí. Sofía prueba vieiras a la parrilla, takoyaki y kakigori (hielo raspado).</p>
+                     <p>"¡Es como un parque de atracciones para la comida!" exclama.</p>
+                     <p>Observan a chefs locales seleccionando ingredientes.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(8)">Visitar ahora el Castillo de Osaka.</button>
+                <button onclick="showSection(2)">Preferir ir a Nara a ver los ciervos.</button>
+            </div>
+        </div>
+
+        <div id="section-57" class="section">
+            <h2>Los santuarios escondidos</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía explora los santuarios secundarios de Fushimi Inari. Se alejan del camino principal y descubren senderos tranquilos.</p>
+                     <p>"Me encanta descubrir lugares que no están en las guías," comenta.</p>
+                     <p>Encuentran diminutos santuarios con torii en miniatura y estatuas de zorros. Muchos fueron donados como agradecimiento.</p>
+                     <p>Descubren un jardín japonés en miniatura con un estanque koi. Un jardinero anciano trabaja rastrillando grava. Invita a Sofía a intentarlo.</p>
+                     <p>"Es más difícil de lo que parece," dice. "Requiere concentración."</p>
+                     <p>El anciano le regala una campana de cerámica con un zorro pintado.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(46)">Continuar explorando Kioto y visitar el distrito de Gion.</button>
+            </div>
+        </div>
+
+        <div id="section-58" class="section">
+            <h2>El espectáculo en Gion Corner</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía asiste al espectáculo en Gion Corner, una introducción a las artes tradicionales japonesas. El teatro es íntimo.</p>
+                     <p>El espectáculo incluye ceremonia del té, ikebana (arreglo floral), música tradicional (koto, shakuhachi).</p>
+                     <p>"Los sonidos son tan diferentes," susurra Sofía.</p>
+                     <p>Le impresiona la danza de las maiko, con sus kimonos y maquillaje. Disfrutan del bunraku (títeres) y kyogen (teatro cómico).</p>
+                     <p>"¡No entendí las palabras, pero me reí igual!" exclama.</p>
+                     <p>Termina con una demostración de kyomai (danza de Kioto).</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                 <p>¿Qué plan para mañana?</p>
+                <button onclick="showSection(11)">Visitar el Bosque de Bambú de Arashiyama.</button>
+                <button onclick="showSection(48)">Explorar el Santuario Fushimi Inari.</button>
+            </div>
+        </div>
+
+        <div id="section-59" class="section">
+            <h2>El gigante de Gundam</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Van a DiverCity Tokyo Plaza en Odaiba a ver la estatua gigante de Gundam (19,7 metros).</p>
+                     <p>"¡Es enorme!" exclama Sofía.</p>
+                     <p>Presencian el espectáculo: la estatua se ilumina, mueve partes, emite sonidos y luces.</p>
+                     <p>"Gundam es uno de los animes más influyentes," explica su tío. "Comenzó en 1979."</p>
+                     <p>Visitan el Gundam Base en el centro comercial, una tienda enorme con exposiciones y modelos (gunpla).</p>
+                     <p>"Es increíble el detalle," comenta Sofía.</p>
+                     <p>Aunque no es fan, aprecia el arte y la dedicación.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(6)">Continuar explorando Tokio y visitar Akihabara.</button>
+                <button onclick="showSection(61)">Preferir visitar el barrio tradicional de Asakusa.</button>
+            </div>
+        </div>
+
+        <div id="section-60" class="section">
+            <h2>La cima de la montaña de Inari</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Decidida, Sofía convence a su familia de seguir subiendo por el sendero de Fushimi Inari. Los torii se hacen menos densos y hay menos turistas.</p>
+                     <p>"La mayoría solo recorre el primer kilómetro," dice el tío David. "La ruta tiene 4 km y sube 233 metros."</p>
+                     <p>El camino se vuelve empinado. Se detienen en miradores con vistas impresionantes.</p>
+                     <p>"¡Cada paso vale la pena!" exclama Sofía.</p>
+                     <p>Llegan a Yotsutsuji, un mirador alto con una vista espectacular de Kioto.</p>
+                     <p>"Es como ver toda la historia de Japón," comenta su padre.</p>
+                     <p>Sofía siente una gran satisfacción.</p>
+                     <p>"A veces el camino menos transitado ofrece las mejores recompensas," reflexiona.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                 <p>¿Qué plan para la siguiente etapa?</p>
+                <button onclick="showSection(11)">Explorar mañana el Bosque de Bambú de Arashiyama.</button>
+                <button onclick="showSection(6)">Dirigirte hacia Tokio.</button>
+            </div>
+        </div>
+
+        <div id="section-61" class="section">
+            <h2>El templo Senso-ji en Asakusa</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Visitan Asakusa para ver el templo Senso-ji, el más antiguo de Tokio. Se acercan por Nakamise-dori, calle comercial llena de tiendas.</p>
+                     <p>"Esta calle existe desde el siglo XVIII," comenta el tío David.</p>
+                     <p>Sofía observa cómo hacen ningyoyaki (pasteles con forma de muñeco). El vendedor le regala uno.</p>
+                     <p>"¡Está calentito y delicioso!" dice.</p>
+                     <p>Llegan a la Puerta Kaminarimon con su linterna roja. Pasan por la puerta Hozomon hasta el templo principal, rojo bermellón.</p>
+                     <p>Se purifican en la fuente chozuya. Dentro, observan a los devotos.</p>
+                     <p>Sofía queda impresionada por la atmósfera. "Es como viajar atrás en el tiempo," comenta.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(62)">Visitar después el Parque Ueno.</button>
+                <button onclick="showSection(7)">Preferir subir al Tokyo Skytree (y finalizar la aventura).</button>
+            </div>
+        </div>
+
+        <div id="section-62" class="section">
+            <h2>El Parque Ueno</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Exploran el Parque Ueno, uno de los primeros parques públicos de Japón, con museos, zoo, templos y un estanque.</p>
+                     <p>"Es famoso durante la floración de los cerezos," explica el tío David. "Miles vienen para el hanami."</p>
+                     <p>Pasean alrededor del Estanque Shinobazu. Alquilan un bote con forma de cisne.</p>
+                     <p>Visitan el Zoológico de Ueno, el más antiguo. Sofía se encanta con los pandas gigantes.</p>
+                     <p>"Son 'embajadores de la amistad'," cuenta su padre.</p>
+                     <p>Exploran la zona de animales japoneses: macacos, tanukis (perros mapache).</p>
+                     <p>"Nunca pensé que existiera un mapache-perro," comenta Sofía.</p>
+                     <p>La tarde pasa rápidamente.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(7)">Finalizar tu viaje con una vista desde Tokyo Skytree.</button>
+                <button onclick="showSection(63)">Preferir visitar el colorido barrio de Harajuku.</button>
+            </div>
+        </div>
+
+        <div id="section-63" class="section">
+            <h2>El excéntrico Harajuku</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Visitan Harajuku, epicentro de la moda juvenil. Su primera parada es la Calle Takeshita, llena de tiendas coloridas.</p>
+                     <p>"¡Esto es como un mundo de fantasía!" exclama Sofía.</p>
+                     <p>Se detienen en una tienda de crepes enrollados en cono y rellenos de frutas, crema, etc.</p>
+                     <p>"¡Es como un postre dentro de otro postre!" dice Sofía.</p>
+                     <p>Visitan tiendas de "gacha-gacha" y accesorios para el pelo.</p>
+                     <p>Le sorprende ver adolescentes vestidos con estilos elaborados (Lolita, Decora...).</p>
+                     <p>"Es una forma de expresión muy creativa," explica su tío.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(64)">Terminar tu aventura visitando Shibuya y su cruce.</button>
+                <button onclick="showSection(7)">Preferir finalizar tu viaje desde Tokyo Skytree.</button>
+            </div>
+        </div>
+
+        <div id="section-64" class="section">
+            <h2>El cruce de Shibuya</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Para su última aventura en Japón, Sofía y su familia visitan el famoso Cruce de Shibuya, probablemente la intersección peatonal más concurrida del mundo. Se sitúan frente a la estación de Shibuya, junto a la estatua de Hachikō, el leal perro que esperó a su dueño durante años después de su muerte.</p>
+                     <p>"La historia de Hachikō es un símbolo de lealtad y devoción," explica el padre de Sofía mientras acarician la estatua de bronce, ya brillante por las innumerables manos que la han tocado.</p>
+                     <p>Desde allí observan el espectacular cruce. Cuando los semáforos se ponen en rojo para los coches, una marea humana de hasta 3.000 personas cruza simultáneamente en todas direcciones. Es un caos organizado, una coreografía urbana perfectamente sincronizada.</p>
+                     <p>"¡Vamos a cruzar!" propone Sofía entusiasmada.</p>
+                     <p>Se unen a la multitud en la siguiente oleada, y Sofía experimenta la emoción de ser parte de este flujo humano, como un pequeño pez en un enorme banco. A pesar de la cantidad de gente, nadie choca con nadie; todos se mueven con una cortesía y eficiencia asombrosas.</p>
+                     <p>Después, suben al Starbucks situado frente al cruce, conocido por tener una de las mejores vistas para observar este fenómeno urbano desde arriba. Mientras disfrutan de sus bebidas, contemplan varias rondas de cruce, hipnotizados por el ritmo de la ciudad.</p>
+                     <p>"Es como ver el latido del corazón de Tokio," reflexiona Sofía.</p>
+                 </div>
+            </div>
+            <div class="location-map-placeholder"></div>
+            <div class="choices">
+                <button onclick="showSection(7)">Finalizar tu viaje por Japón con una vista desde Tokyo Skytree.</button>
+            </div>
+        </div>
+
+    </div><script>
         // Mapping from section number to location name (used for map image filename)
+        // UPDATED based on Títulos de las secciones.pdf
         const sectionToLocationMap = {
-            0: 'osaka', 1: 'osaka', 8: 'osaka', 12: 'osaka', 16: 'osaka', 20: 'osaka', 21: 'osaka', 30: 'osaka', 39: 'osaka', 41: 'osaka', 42: 'osaka', 44: 'osaka', 45: 'osaka', 51: 'osaka', 52: 'osaka', 56: 'osaka',
-            2: 'nara', 15: 'nara', 18: 'nara', 23: 'nara', 40: 'nara',
-            3: 'kanazawa', 10: 'kanazawa', 19: 'kanazawa', 27: 'kanazawa', 43: 'kanazawa', 54: 'kanazawa',
-            4: 'himeji', 17: 'himeji', 32: 'himeji',
-            5: 'omihachiman', 24: 'omihachiman', 35: 'omihachiman',
-            6: 'tokyo', 7: 'tokyo', 9: 'tokyo', 14: 'tokyo', 26: 'tokyo', 31: 'tokyo', 34: 'tokyo', 36: 'tokyo', 37: 'tokyo', 38: 'tokyo', 53: 'tokyo', 59: 'tokyo', 61: 'tokyo', 62: 'tokyo', 63: 'tokyo', 64: 'tokyo',
-            11: 'kyoto', 13: 'kyoto', 22: 'kyoto', 25: 'kyoto', 28: 'kyoto', 29: 'kyoto', 33: 'kyoto', 46: 'kyoto', 47: 'kyoto', 48: 'kyoto', 50: 'kyoto', 55: 'kyoto', 57: 'kyoto', 58: 'kyoto', 60: 'kyoto',
+             0: 'osaka', // Intro, near Kansai Airport
+             1: 'osaka',
+             2: 'nara',
+             3: 'kanazawa',
+             4: 'hikone', // Updated
+             5: 'omihachiman',
+             6: 'tokyo',
+             7: 'tokyo',
+             8: 'osaka',
+             9: 'tokyo',
+            10: 'kanazawa',
+            11: 'kyoto',
+            12: 'osaka',
+            13: 'kyoto',
+            14: 'tokyo',
+            15: 'nara',
+            16: 'osaka',
+            17: 'hikone', // Updated
+            18: 'nara',
+            19: 'kanazawa',
+            20: 'osaka',
+            21: 'osaka',
+            22: 'kyoto',
+            23: 'nara',
+            24: 'omihachiman',
+            25: 'kyoto',
+            26: 'tokyo',
+            27: 'kanazawa',
+            28: 'kyoto',
+            29: 'kyoto',
+            30: 'osaka',
+            31: 'tokyo',
+            32: 'hikone', // Updated
+            33: 'kyoto',
+            34: 'tokyo',
+            35: 'omihachiman',
+            36: 'tokyo',
+            37: 'tokyo',
+            38: 'tokyo',
+            39: 'osaka',
+            40: 'nara',
+            41: 'osaka',
+            42: 'osaka', // Section where choice leads to Hikone
+            43: 'kanazawa',
+            44: 'osaka',
+            45: 'osaka',
+            46: 'kyoto',
+            47: 'kyoto',
+            48: 'kyoto',
+            49: 'osaka', // Section where choice leads to Hikone
+            50: 'kyoto',
+            51: 'osaka',
+            52: 'osaka', // Section where choice leads to Hikone
+            53: 'tokyo',
+            54: 'kanazawa',
+            55: 'kyoto',
+            56: 'osaka',
+            57: 'kyoto',
+            58: 'kyoto',
+            59: 'tokyo',
+            60: 'kyoto',
+            61: 'tokyo',
+            62: 'tokyo',
+            63: 'tokyo',
+            64: 'tokyo'
         };
 
         function clearImagesAndLayout(sectionDiv) {
@@ -417,14 +1615,14 @@
         function updateLocationMap(sectionDiv, sectionNumber) {
             const mapPlaceholder = sectionDiv.querySelector('.location-map-placeholder');
             if (!mapPlaceholder) return;
-            mapPlaceholder.innerHTML = ''; // Clear previous map
+            mapPlaceholder.innerHTML = '';
 
             const locationName = sectionToLocationMap[sectionNumber];
             if (locationName) {
-                const mapPath = `img/${locationName}.png`;
+                const mapPath = `img/${locationName}.png`; // Assumes .png extension
                 const mapImg = new Image();
                 mapImg.onload = function() {
-                    mapImg.alt = `Mapa de ${locationName}`;
+                    mapImg.alt = `Mapa de ${locationName.charAt(0).toUpperCase() + locationName.slice(1)}`; // Capitalize alt text
                     mapPlaceholder.appendChild(mapImg);
                 };
                 mapImg.onerror = function() {
@@ -453,14 +1651,13 @@
             };
 
             clearImagesAndLayout(targetSection);
-            updateLocationMap(targetSection, sectionNumber); // Load map first
+            updateLocationMap(targetSection, sectionNumber);
 
-            // Check for Scene Image
             const imagePath = `img/${sectionNumber}.png`;
             const img = new Image();
 
             img.onload = function() {
-                insertImage(targetSection, img); // Insert scene image
+                insertImage(targetSection, img);
                 activateSection();
             };
             img.onerror = function() {
