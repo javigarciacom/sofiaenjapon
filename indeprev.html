@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Gran Aventura de Sofía en Japón</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap');
+
+        :root {
+            --title-color: #ff9a8b; /* Coral */
+            --accent-color-start: #ff9a8b; /* Coral */
+            --accent-color-end: #ff6a88; /* Pink */
+            --text-color: #333;
+            --text-light: #555;
+            --bg-light: #fdfaff;
+            --bg-container: #ffffff;
+            --border-color: #ddd;
+            --border-accent: #ffb6c1; /* Light Pink */
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-light);
+            margin: 0;
+            padding: 0;
+        }
+
+        .story-container {
+            background-color: var(--bg-container);
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(100, 80, 150, 0.15);
+            max-width: 900px;
+            width: 90%;
+            margin: 30px auto;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        /* --- Title Image --- */
+        .title-image-container {
+            width: 100%;
+            line-height: 0;
+            border-bottom: 2px solid var(--border-accent);
+            margin-bottom: 0;
+        }
+        .title-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        /* --- End Title Image --- */
+
+
+        .section {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+             padding: 25px 40px; /* Padding for section content */
+        }
+
+        .section.active {
+            display: block;
+            opacity: 1;
+        }
+
+        h2 { /* Scene Title */
+            color: var(--title-color);
+            text-align: center;
+            margin-bottom: 25px; /* More space below title */
+            font-size: 1.8em;
+            margin-top: 0;
+        }
+
+        /* --- Location Map (Moved Before Choices) --- */
+         .location-map-placeholder {
+             text-align: center; /* Center the map image */
+             margin-top: 30px; /* Space ABOVE map */
+             margin-bottom: 0; /* Reset bottom margin, choices will handle below space */
+             line-height: 0; /* Prevent extra space */
+         }
+
+         .location-map-placeholder img {
+             display: inline-block;
+             max-width: 200px; /* INCREASED SIZE x2 */
+             max-height: 200px; /* INCREASED SIZE x2 */
+             width: auto;
+             height: auto;
+             border-radius: 8px;
+             background-color: #eee; /* Placeholder bg */
+         }
+        /* --- End Location Map --- */
+
+        p {
+            margin-bottom: 1em;
+            font-size: 1.1em;
+            color: var(--text-light);
+        }
+        ul {
+            margin-bottom: 1em;
+            padding-left: 25px;
+            color: var(--text-light);
+        }
+        li {
+             margin-bottom: 0.5em;
+        }
+
+        /* --- Scene Image Handling Styles --- */
+        .image-placeholder-horizontal {
+            text-align: center;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .section.has-horizontal-image .image-placeholder-horizontal { display: block; }
+        .image-placeholder-horizontal img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .content-wrapper { margin-bottom: 20px; }
+        .image-placeholder-vertical { display: none; }
+        .image-placeholder-vertical img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+            margin-top: 0;
+        }
+        .text-content p:first-child,
+        .text-content ul:first-child {
+             margin-top: 0;
+        }
+
+        .section.has-vertical-image .content-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: flex-start;
+        }
+        .section.has-vertical-image .image-placeholder-vertical {
+            display: block;
+            flex: 1 1 35%;
+            min-width: 200px;
+        }
+        .section.has-vertical-image .text-content {
+            flex: 1 1 55%;
+            min-width: 250px;
+        }
+
+        .section.has-vertical-image.image-left .image-placeholder-vertical { order: 1; }
+        .section.has-vertical-image.image-left .text-content { order: 2; }
+        .section.has-vertical-image.image-right .image-placeholder-vertical { order: 2; }
+        .section.has-vertical-image.image-right .text-content { order: 1; }
+        /* --- End Scene Image Styles --- */
+
+        .choices {
+            margin-top: 30px; /* INCREASED top margin for space below map */
+            padding-top: 20px;
+            border-top: 1px dashed var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            clear: both;
+        }
+
+        .choices p { /* Text prompt for choices */
+            font-weight: 500;
+            color: var(--title-color);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .choices button {
+            display: block;
+            width: 100%;
+            padding: 15px 20px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #fff;
+            background-color: var(--accent-color-start);
+            background-image: linear-gradient(90deg, var(--accent-color-start) 0%, var(--accent-color-end) 100%);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(255, 106, 136, 0.3);
+            text-align: left;
+        }
+        .choices button:hover {
+            background-image: linear-gradient(90deg, var(--accent-color-end) 0%, var(--accent-color-start) 100%);
+            box-shadow: 0 6px 15px rgba(255, 106, 136, 0.4);
+            transform: translateY(-2px);
+        }
+        .choices button:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 5px rgba(255, 106, 136, 0.2);
+        }
+
+         h3 { /* For FIN DE LA AVENTURA */
+             text-align: center;
+             color: var(--title-color);
+             font-size: 1.5em;
+             margin-top: 30px;
+             font-weight: 700;
+         }
+
+         /* Small screen adjustments */
+        @media (max-width: 768px) {
+             .story-container { width: 95%; }
+             .section { padding: 20px 25px; }
+             h2 { font-size: 1.5em; }
+             .location-map-placeholder img { max-width: 150px; max-height: 150px; } /* Adjusted map size */
+             p, li { font-size: 1em; }
+             .choices button { font-size: 1em; padding: 12px 15px; }
+
+             .section.has-vertical-image .content-wrapper {
+                 flex-direction: column;
+                 gap: 15px;
+             }
+             .section.has-vertical-image .image-placeholder-vertical {
+                 width: 100%;
+                 max-width: 300px;
+                 margin: 0 auto 15px auto;
+                 order: 1 !important;
+             }
+             .section.has-vertical-image .text-content {
+                 width: 100%;
+                 order: 2 !important;
+                 flex-basis: auto;
+             }
+        }
+        @media (max-width: 480px) {
+             .location-map-placeholder img { max-width: 120px; max-height: 120px;} /* Smaller map */
+             h2 { font-size: 1.4em; margin-bottom: 15px; }
+             .choices { margin-top: 25px; } /* Adjust spacing */
+             .location-map-placeholder { margin-top: 25px; }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="story-container">
+        <div class="title-image-container">
+            <img src="img/titulo.png" alt="La Gran Aventura de Sofía en Japón" class="title-image">
+        </div>
+
+        <div id="section-0" class="section active">
+            <h2>Introducción</h2>
+
+            <div class="image-placeholder-horizontal"></div>
+            <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía apretó su mochila contra el pecho mientras contemplaba, con ojos muy abiertos, el cartel de bienvenida del aeropuerto de Kansai. ¡Por fin había llegado a Japón! Después de meses de espera, estaba a punto de comenzar un viaje de dos semanas junto a su tío David, un fotógrafo de viajes que conocía el país como la palma de su mano, y su padre Javi, quien había organizado esta aventura como regalo por su undécimo cumpleaños.</p>
+                     <p>"¿Lista para la aventura, pequeña exploradora?" preguntó su tío David, ajustándose la correa de su cámara fotográfica.</p>
+                     <p>"¡Más que lista!" respondió Sofía con entusiasmo, aunque una mezcla de nervios y emoción le hacía cosquillas en el estómago.</p>
+                     <p>Su padre le pasó el brazo por los hombros. "Recuerda, Sofi, este viaje es tuyo. Tú decides qué quieres ver y hacer. Nosotros solo somos tus compañeros de aventuras."</p>
+                     <p>Sofía sonrió. Le encantaba tomar decisiones, aunque a veces resultaba difícil elegir. El itinerario incluía visitas a Osaka, Nara, Õmihachiman, Kanazawa, Kioto y Tokio. ¡Tantos lugares por descubrir!</p>
+                     <p>Mientras caminaban hacia la estación de tren, Sofía sacó su diario de viaje. En la primera página había escrito: "Mi aventura en Japón - Cada elección abre una nueva historia".</p>
+                     <p>Y así comenzó su viaje...</p>
+                 </div>
+            </div>
+
+            <div class="location-map-placeholder">
+                  </div>
+
+             <div class="choices">
+                 <button onclick="showSection(1)">Comenzar la Aventura en Osaka</button>
+             </div>
+        </div>
+
+        <div id="section-1" class="section">
+             <h2>Primer día en Osaka</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>El tren bala los dejó en la bulliciosa ciudad de Osaka. Después de dejar las maletas en el hotel, era hora de comenzar a explorar. El estómago de Sofía gruñó, recordándole que no había comido nada desde el desayuno en el avión. "¿Qué te gustaría hacer primero, Sofi?" preguntó su padre.</p>
+                 </div>
+             </div>
+
+             <div class="location-map-placeholder"></div>
+
+             <div class="choices">
+                <p>Sofía consideró sus opciones:</p>
+                 <button onclick="showSection(8)">Visitar el famoso Castillo de Osaka y aprender sobre su historia.</button>
+                 <button onclick="showSection(12)">Ir a Dotonbori, la famosa calle de comida callejera, para probar delicias locales.</button>
+             </div>
+        </div>
+
+        <div id="section-2" class="section">
+             <h2>Un bosque misterioso en Nara</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                    <p>Sofía, su padre y su tío se adentran por un sendero menos transitado del Parque de Nara. Los árboles se vuelven más densos y los sonidos de otros turistas se desvanecen. De repente, un ciervo de pelaje casi plateado aparece frente a ellos, mirándolos fijamente con ojos inteligentes.</p>
+                    <p>"Nunca había visto un ciervo así," susurra el tío David, preparando su cámara.</p>
+                    <p>El ciervo parece querer que lo sigan, dando unos pasos y luego volteando a mirarlos.</p>
+                     <p>"Parece que quiere llevarnos a algún sitio," dice Sofía.</p>
+                 </div>
+            </div>
+
+            <div class="location-map-placeholder"></div>
+
+            <div class="choices">
+                <button onclick="showSection(15)">Decides seguir al misterioso ciervo.</button>
+                <button onclick="showSection(23)">Prefieres volver al sendero principal y continuar con la visita normal.</button>
+            </div>
+        </div>
+
+        <div id="section-8" class="section">
+             <h2>El majestuoso Castillo de Osaka</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía, su padre y su tío se dirigen al imponente Castillo de Osaka. Mientras suben la colina hacia la fortaleza, el tío David le cuenta a Sofía la historia del castillo.</p>
+                     <p>"Fue construido en el siglo XVI por Toyotomi Hideyoshi, uno de los grandes unificadores de Japón. Ha sido destruido y reconstruido varias veces. Lo que vemos hoy es una reconstrucción moderna, pero sigue siendo impresionante."</p>
+                     <p>Al entrar al castillo, Sofía queda maravillada por las exhibiciones de armas samurái, armaduras y objetos históricos. Desde lo alto del castillo, disfrutan de una vista panorámica de la ciudad.</p>
+                     <p>"Mira, papá, ¡se puede ver toda Osaka desde aquí!"</p>
+                 </div>
+            </div>
+
+            <div class="location-map-placeholder"></div>
+
+            <div class="choices">
+                <p>Después de explorar el castillo, tienen dos opciones para continuar el día:</p>
+                <button onclick="showSection(16)">Visitar el Museo de Historia de Osaka para aprender más sobre la ciudad.</button>
+                <button onclick="showSection(21)">Ir al Parque del Castillo para disfrutar de los jardines y quizás hacer un picnic.</button>
+            </div>
+        </div>
+
+        <div id="section-12" class="section">
+             <h2>Delicias en Dotonbori</h2>
+             <div class="image-placeholder-horizontal"></div>
+             <div class="content-wrapper">
+                 <div class="image-placeholder-vertical"></div>
+                 <div class="text-content">
+                     <p>Sofía y su familia se sumergen en la vibrante calle de Dotonbori, el corazón gastronómico de Osaka. Los enormes carteles luminosos, incluido el famoso cangrejo mecánico Kani Doraku, dan la bienvenida a los visitantes. El aire está lleno de aromas tentadores y el sonido de los vendedores anunciando sus especialidades.</p>
+                     <p>"Osaka es conocida como 'la cocina de Japón'," explica el tío David. "Y no hay mejor lugar para probarlo que aquí."</p>
+                     <p>Sofía observa con fascinación cómo preparan los takoyaki, bolitas de masa rellenas de pulpo, y los okonomiyaki, una especie de tortilla con diversos ingredientes. Su estómago gruñe aún más fuerte.</p>
+                 </div>
+            </div>
+
+            <div class="location-map-placeholder"></div>
+
+            <div class="choices">
+                <button onclick="showSection(20)">Probar los takoyaki y otras comidas callejeras mientras paseas.</button>
+                <button onclick="showSection(30)">Sentarte en un restaurante local para disfrutar de un okonomiyaki completo.</button>
+            </div>
+        </div>
+
+        </div><script>
+        // Mapping from section number to location name (used for map image filename)
+        const sectionToLocationMap = {
+            0: 'osaka', 1: 'osaka', 8: 'osaka', 12: 'osaka', 16: 'osaka', 20: 'osaka', 21: 'osaka', 30: 'osaka', 39: 'osaka', 41: 'osaka', 42: 'osaka', 44: 'osaka', 45: 'osaka', 51: 'osaka', 52: 'osaka', 56: 'osaka',
+            2: 'nara', 15: 'nara', 18: 'nara', 23: 'nara', 40: 'nara',
+            3: 'kanazawa', 10: 'kanazawa', 19: 'kanazawa', 27: 'kanazawa', 43: 'kanazawa', 54: 'kanazawa',
+            4: 'himeji', 17: 'himeji', 32: 'himeji',
+            5: 'omihachiman', 24: 'omihachiman', 35: 'omihachiman',
+            6: 'tokyo', 7: 'tokyo', 9: 'tokyo', 14: 'tokyo', 26: 'tokyo', 31: 'tokyo', 34: 'tokyo', 36: 'tokyo', 37: 'tokyo', 38: 'tokyo', 53: 'tokyo', 59: 'tokyo', 61: 'tokyo', 62: 'tokyo', 63: 'tokyo', 64: 'tokyo',
+            11: 'kyoto', 13: 'kyoto', 22: 'kyoto', 25: 'kyoto', 28: 'kyoto', 29: 'kyoto', 33: 'kyoto', 46: 'kyoto', 47: 'kyoto', 48: 'kyoto', 50: 'kyoto', 55: 'kyoto', 57: 'kyoto', 58: 'kyoto', 60: 'kyoto',
+        };
+
+        function clearImagesAndLayout(sectionDiv) {
+            const horizontalPlaceholder = sectionDiv.querySelector('.image-placeholder-horizontal');
+            if (horizontalPlaceholder) horizontalPlaceholder.innerHTML = '';
+            const verticalPlaceholder = sectionDiv.querySelector('.image-placeholder-vertical');
+            if (verticalPlaceholder) verticalPlaceholder.innerHTML = '';
+            const mapPlaceholder = sectionDiv.querySelector('.location-map-placeholder');
+            if (mapPlaceholder) mapPlaceholder.innerHTML = '';
+            sectionDiv.classList.remove('has-vertical-image', 'has-horizontal-image', 'image-left', 'image-right');
+        }
+
+        function insertImage(sectionDiv, imgElement) {
+            // Clear only scene images, keep map
+            const horizontalPlaceholder = sectionDiv.querySelector('.image-placeholder-horizontal');
+            if (horizontalPlaceholder) horizontalPlaceholder.innerHTML = '';
+            const verticalPlaceholder = sectionDiv.querySelector('.image-placeholder-vertical');
+            if (verticalPlaceholder) verticalPlaceholder.innerHTML = '';
+            sectionDiv.classList.remove('has-vertical-image', 'has-horizontal-image', 'image-left', 'image-right');
+
+            const imgClone = imgElement.cloneNode(true);
+            const isVertical = imgElement.naturalHeight > imgElement.naturalWidth * 1.1;
+
+            if (isVertical) {
+                const placeholder = sectionDiv.querySelector('.image-placeholder-vertical');
+                if (placeholder) {
+                    placeholder.appendChild(imgClone);
+                    sectionDiv.classList.add('has-vertical-image');
+                    const sectionNum = parseInt(sectionDiv.id.split('-')[1] || 0);
+                    if (sectionNum % 2 === 0) {
+                         sectionDiv.classList.add('image-right');
+                    } else {
+                         sectionDiv.classList.add('image-left');
+                    }
+                } else {
+                    const fallbackPlaceholder = sectionDiv.querySelector('.image-placeholder-horizontal');
+                    if(fallbackPlaceholder) fallbackPlaceholder.appendChild(imgClone);
+                    sectionDiv.classList.add('has-horizontal-image');
+                }
+            } else {
+                const placeholder = sectionDiv.querySelector('.image-placeholder-horizontal');
+                if (placeholder) {
+                     placeholder.appendChild(imgClone);
+                     sectionDiv.classList.add('has-horizontal-image');
+                 }
+            }
+        }
+
+        function updateLocationMap(sectionDiv, sectionNumber) {
+            const mapPlaceholder = sectionDiv.querySelector('.location-map-placeholder');
+            if (!mapPlaceholder) return;
+            mapPlaceholder.innerHTML = ''; // Clear previous map
+
+            const locationName = sectionToLocationMap[sectionNumber];
+            if (locationName) {
+                const mapPath = `img/${locationName}.png`;
+                const mapImg = new Image();
+                mapImg.onload = function() {
+                    mapImg.alt = `Mapa de ${locationName}`;
+                    mapPlaceholder.appendChild(mapImg);
+                };
+                mapImg.onerror = function() {
+                    console.log(`Map image not found or error loading: ${mapPath}`);
+                };
+                mapImg.src = mapPath;
+            }
+        }
+
+        function showSection(sectionNumber) {
+            const targetSection = document.getElementById('section-' + sectionNumber);
+            if (!targetSection) {
+                console.error('Section ' + sectionNumber + ' not found!');
+                showSection(0);
+                return;
+            }
+
+            const activateSection = () => {
+                 document.querySelectorAll('.section.active').forEach(activeSection => {
+                     if (activeSection.id !== targetSection.id) {
+                         activeSection.classList.remove('active');
+                     }
+                 });
+                targetSection.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            };
+
+            clearImagesAndLayout(targetSection);
+            updateLocationMap(targetSection, sectionNumber); // Load map first
+
+            // Check for Scene Image
+            const imagePath = `img/${sectionNumber}.png`;
+            const img = new Image();
+
+            img.onload = function() {
+                insertImage(targetSection, img); // Insert scene image
+                activateSection();
+            };
+            img.onerror = function() {
+                activateSection(); // Show section without scene image
+            };
+            img.src = imagePath;
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            showSection(0);
+        });
+    </script>
+</body>
+</html>
